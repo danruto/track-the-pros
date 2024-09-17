@@ -4,22 +4,22 @@ import { getCookie } from "vinxi/http"
 
 const DATA: IUser[] = [
     {
-        username: 'TheShackledOne',
-        riotId: '003',
-        display: 'Caps',
-        role: 'Mid',
+        username: "TheShackledOne",
+        riotId: "003",
+        display: "Caps",
+        role: "Mid",
         team: {
-            name: 'G2',
-            avatar: ''
+            name: "G2",
+            avatar: "",
         },
         avatar: null,
         socials: [
             {
-                kind: 'Twitch',
-                value: 'https://www.twitch.tv/caps'
-            }
-        ]
-    }
+                kind: "Twitch",
+                value: "https://www.twitch.tv/caps",
+            },
+        ],
+    },
 ]
 
 function update() {

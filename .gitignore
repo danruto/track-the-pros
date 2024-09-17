@@ -1,3 +1,4 @@
+.jj
 
 dist
 .solid
@@ -34,5 +35,7 @@ Thumbs.db
 !.env.project
 !.env.vault
 
-/drizzle/db.sqlite
-/drizzle/migrations/meta
+/src/drizzle/db.sqlite
+/src/drizzle/migrations
+
+# seed-*.json

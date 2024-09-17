@@ -6,8 +6,10 @@ import accountsData from "../seed-accounts.json"
 import playersData from "../seed-players.json"
 import teamsData from "../seed-teams.json"
 
-export function seed(db: BetterSQLite3Database) {
-    db.insert(Teams).values(teamsData)
-    db.insert(Players).values(playersData)
-    db.insert(Accounts).values(accountsData)
+export async function seed(db: BetterSQLite3Database) {
+    console.log("Seeding...")
+    await db.insert(Teams).values(teamsData)
+    await db.insert(Players).values(playersData)
+    await db.insert(Accounts).values(accountsData)
+    console.log("Seeded")
 }

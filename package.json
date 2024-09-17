@@ -26,6 +26,7 @@
     "devDependencies": {
         "@types/better-sqlite3": "^7.6.11",
         "@types/node": "^22.5.5",
-        "drizzle-kit": "^0.24.2"
+        "drizzle-kit": "^0.24.2",
+        "vite-tsconfig-paths": "^5.0.1"
     }
 }

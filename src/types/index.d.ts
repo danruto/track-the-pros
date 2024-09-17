@@ -1,6 +1,5 @@
-
-export type TSocialKind = 'X' | 'Twitch'
-export type TRole = 'Top' | 'Jungle' | 'Mid' | 'Bot' | 'Support' | 'Coach' | 'Fill'
+export type TSocialKind = "X" | "Twitch"
+export type TRole = "Top" | "Jungle" | "Mid" | "Bot" | "Support" | "Coach" | "Fill"
 
 export interface ITeam {
     name: string
@@ -18,20 +17,23 @@ export interface IStat {
     percentage: number
 }
 
-export interface IUser {
+export interface IAccount {
     username: string
     riotId: string
+}
 
+export interface IPlayer {
     display: string
 
     role: TRole
     team: ITeam | null
     avatar: string | null
 
-    socials: ISocial[]
+    accounts: IAccount[]
+
+    socials?: ISocial[]
 }
 
-export interface IUserResponse extends IUser {
-    stats: IStat
+export interface IPlayerResponse extends IPlayer {
+    stats?: IStat
 }
-
