@@ -1,0 +1,275 @@
+[
+    {
+        "id": 1,
+        "display": "Caps",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 1
+    },
+    {
+        "id": 2,
+        "display": "Hans Sama",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 1
+    },
+    {
+        "id": 3,
+        "display": "Mikyx",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 1
+    },
+    {
+        "id": 4,
+        "display": "BrokenBlade",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 1
+    },
+    {
+        "id": 5,
+        "display": "Yike",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 1
+    },
+    {
+        "id": 6,
+        "display": "Razork",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 2
+    },
+    {
+        "id": 7,
+        "display": "Jun",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 2
+    },
+    {
+        "id": 8,
+        "display": "Humanoid",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 2
+    },
+    {
+        "id": 9,
+        "display": "Oscarinin",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 2
+    },
+    {
+        "id": 10,
+        "display": "Noah",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 2
+    },
+    {
+        "id": 11,
+        "display": "Alvaro",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 3
+    },
+    {
+        "id": 12,
+        "display": "Supa",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 3
+    },
+    {
+        "id": 13,
+        "display": "Fresskowy",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 3
+    },
+    {
+        "id": 14,
+        "display": "Elyoya",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 3
+    },
+    {
+        "id": 15,
+        "display": "Myrwnn",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 3
+    },
+    {
+        "id": 16,
+        "display": "Quid",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 4
+    },
+    {
+        "id": 17,
+        "display": "General Sniper",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 4
+    },
+    {
+        "id": 18,
+        "display": "River",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 4
+    },
+    {
+        "id": 19,
+        "display": "Eyla",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 4
+    },
+    {
+        "id": 20,
+        "display": "GoldenGlue",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 4
+    },
+    {
+        "id": 21,
+        "display": "Oddie",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 5
+    },
+    {
+        "id": 22,
+        "display": "Keine",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 5
+    },
+    {
+        "id": 23,
+        "display": "Ceo",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 5
+    },
+    {
+        "id": 24,
+        "display": "Summit",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 5
+    },
+    {
+        "id": 25,
+        "display": "Yeon",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 26,
+        "display": "CoreJJ",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 27,
+        "display": "APA",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 28,
+        "display": "Umti",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 29,
+        "display": "Tomo",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 30,
+        "display": "Impact",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 31,
+        "display": "Spawn",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 6
+    },
+    {
+        "id": 32,
+        "display": "Massu",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 33,
+        "display": "Busio",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 34,
+        "display": "Bwipo",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 35,
+        "display": "Nukeduck",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 36,
+        "display": "Quad",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 37,
+        "display": "Damonte",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 38,
+        "display": "Arrow",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 7
+    },
+    {
+        "id": 39,
+        "display": "Mithy",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 7
+    }
+]

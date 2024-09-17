@@ -7,17 +7,29 @@
         "start": "vinxi start",
         "db:gen": "drizzle-kit generate",
         "db:migrate": "drizzle-kit migrate",
-        "db:studio": "drizzle-kit studio"
+        "db:studio": "drizzle-kit studio",
+        "db:reset": "rm -rf ./src/drizzle/migrations && rm -rf ./src/drizzle/db.sqlite && drizzle-kit generate && drizzle-kit migrate",
+        "fmt": "biome format ./ --write",
+        "fix": "biome check ./ --write",
+        "lint": "biome lint ./ --write",
+        "lint:unsafe": "biome lint ./ --write --unsafe",
+        "lint:nowarn": "biome lint ./ --write --diagnostic-level error"
     },
     "dependencies": {
+        "@fontsource/inter": "^5.1.0",
+        "@kobalte/core": "^0.13.6",
         "@solidjs/router": "^0.14.1",
         "@solidjs/start": "^1.0.6",
         "autoprefixer": "^10.4.19",
         "better-sqlite3": "^11.3.0",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
         "drizzle-orm": "^0.33.0",
         "postcss": "^8.4.38",
         "solid-js": "^1.8.18",
-        "tailwindcss": "^3.4.3",
+        "tailwind-merge": "^2.5.2",
+        "tailwindcss": "^3.4.11",
+        "tailwindcss-animate": "^1.0.7",
         "vinxi": "^0.4.1"
     },
     "engines": {

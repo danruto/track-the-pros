@@ -1,7 +1,9 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server"
 
-// import { db } from "~/api/db"
+import { db } from "~/api/db"
+import { seed } from "~/drizzle/seed"
+seed(db)
 
 export default createHandler(() => (
     <StartServer

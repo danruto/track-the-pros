@@ -22,3 +22,11 @@ export const Accounts = sqliteTable("accounts", {
 
     player_id: integer("player_id").references(() => Players.id),
 })
+
+export const Socials = sqliteTable("socials", {
+    id: integer("id").primaryKey().unique().notNull(),
+    kind: text("kind").notNull(),
+    value: text("value").notNull(),
+
+    player_id: integer("player_id").references(() => Players.id),
+})

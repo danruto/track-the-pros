@@ -29,7 +29,7 @@ export interface IPlayer {
     team: ITeam | null
     avatar: string | null
 
-    accounts: IAccount[]
+    account: IAccount
 
     socials?: ISocial[]
 }
