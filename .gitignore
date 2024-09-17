@@ -28,3 +28,11 @@ gitignore
 Thumbs.db
 
 .direnv
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+
+/drizzle/db.sqlite
+/drizzle/migrations/meta
