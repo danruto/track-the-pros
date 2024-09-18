@@ -1,51 +1,23 @@
 import { A, cache, createAsync } from "@solidjs/router"
-import { eq } from "drizzle-orm"
 import { For } from "solid-js"
-
-import { db } from "~/api/db"
-import { Accounts, Players, Teams } from "~/drizzle/schema"
-import type { IPlayerResponse } from "~/types"
+import { Progress, ProgressValueLabel } from "~/components/ui/progress"
 
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "~/components/ui/table"
+import { fetchPlayer } from "~/lib/riot"
+import type { IPlayerResponse } from "~/types"
 
-const serverGetPlayers = cache(async (): Promise<IPlayerResponse[]> => {
+const serverGetPlayers = cache(async (opts: { limit?: number; offset?: number }): Promise<IPlayerResponse[]> => {
     "use server"
 
-    // Fetch all accounts and mangle the types to something we can use on the frontend
-    const ret = db
-        .select({
-            display: Players.display,
-            role: Players.role,
-            team: {
-                name: Teams.name,
-            },
-            avatar: Players.avatar,
-            account: {
-                username: Accounts.username,
-                riotId: Accounts.riot_id,
-            },
-        })
-        .from(Players)
-        .leftJoin(Accounts, eq(Players.id, Accounts.player_id))
-        .leftJoin(Teams, eq(Teams.id, Players.team_id))
-        .all()
-
-    if (ret) {
-        // Queried valid players, now pull their stats into cache if it has been expired
-        // or if it is still valid then just display it
-
-        return ret as unknown as IPlayerResponse[]
-    }
-
-    return []
+    return await fetchPlayer(opts.limit ?? 100, opts.offset ?? 0)
 }, "getPlayers")
 
 export const route = {
-    load: () => serverGetPlayers(),
+    load: () => serverGetPlayers({}),
 }
 
 export default function Track() {
-    const players = createAsync(() => serverGetPlayers())
+    const players = createAsync(() => serverGetPlayers({}), { initialValue: [], deferStream: true })
 
     return (
         <main class="container mx-auto">
@@ -69,6 +41,8 @@ export default function Track() {
                             <TableHead class="w-[200px]">Team</TableHead>
                             <TableHead class="w-[200px]">Player</TableHead>
                             <TableHead>Account</TableHead>
+                            <TableHead>Role</TableHead>
+                            <TableHead>Stats</TableHead>
                             <TableHead>Socials</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -81,7 +55,28 @@ export default function Track() {
                                     <TableCell>
                                         {user.account.username}#{user.account.riotId}
                                     </TableCell>
-                                    <TableCell>socials</TableCell>
+                                    <TableCell>{user.role}</TableCell>
+                                    <TableCell>
+                                        <Progress
+                                            value={user.stats?.percentage ?? 0}
+                                            fill={(user.stats?.percentage ?? 0 > 50) ? "bg-green-500" : "bg-danger"}
+                                            getValueLabel={() =>
+                                                `${user.stats?.wins ?? 0}W ${user.stats?.losses}L at ${user.stats?.percentage.toFixed(2)}% W/R in ${user.stats?.lp}LP ${user.stats?.tier}`
+                                            }
+                                        >
+                                            <ProgressValueLabel />
+                                        </Progress>
+                                    </TableCell>
+                                    <TableCell>
+                                        <For each={user.socials ?? []}>
+                                            {(social) => (
+                                                <>
+                                                    <p>{social.kind}</p>
+                                                    <p>{social.value}</p>
+                                                </>
+                                            )}
+                                        </For>
+                                    </TableCell>
                                 </TableRow>
                             )}
                         </For>

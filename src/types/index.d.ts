@@ -12,9 +12,11 @@ export interface ISocial {
 }
 
 export interface IStat {
-    win: number
-    loss: number
+    wins: number
+    losses: number
     percentage: number
+    tier: string
+    lp: number
 }
 
 export interface IAccount {
