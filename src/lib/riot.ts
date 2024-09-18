@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm"
 import { db } from "~/api/db/supa"
 import { Accounts, Players, Stats, Teams, Socials } from "~/drizzle/schema-supa"
-import type { IPlayerResponse, IStat, TRole, TSocialKind } from "~/types"
+import type { IPlayerResponse, IStat, ITeam, TRole, TSocialKind } from "~/types"
 
 import { Client } from "shieldbow"
 
@@ -24,6 +24,7 @@ const fetchPlayer = async (limit: number, offset: number) => {
             role: Players.role,
             team: {
                 name: Teams.name,
+                avatar: Teams.avatar,
             },
             avatar: Players.avatar,
             account: {
@@ -117,12 +118,7 @@ const fetchPlayer = async (limit: number, offset: number) => {
                     account: player.account!,
                     role: player.role as TRole,
                     avatar: null,
-                    team: player.team
-                        ? {
-                              ...player.team,
-                              avatar: "",
-                          }
-                        : null,
+                    team: player.team ? (player.team as ITeam) : null,
                     socials: socials?.map((social) => ({
                         kind: social.kind as TSocialKind,
                         value: social.value,

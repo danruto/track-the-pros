@@ -39,3 +39,4 @@ Thumbs.db
 /src/drizzle/migrations
 
 # seed-*.json
+*:Zone.Identifier

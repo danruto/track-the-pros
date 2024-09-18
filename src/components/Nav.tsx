@@ -1,4 +1,5 @@
 import { useLocation } from "@solidjs/router"
+import { ModeToggle } from "./DarkModeToggle"
 
 export default function Nav() {
     const location = useLocation()
@@ -17,6 +18,8 @@ export default function Nav() {
                     <a href="/track">Track</a>
                 </li>
             </ul>
+
+            <ModeToggle />
         </nav>
     )
 }
