@@ -25,7 +25,7 @@ export default function App() {
                     <ColorModeScript storageType={storageManager.type} />
                     <ColorModeProvider storageManager={storageManager}>
                         <Nav />
-                        <Suspense>{props.children}</Suspense>
+                        <Suspense fallback={<div class="h-dvh" />}>{props.children}</Suspense>
                     </ColorModeProvider>
                 </>
             )}

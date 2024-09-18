@@ -1,6 +1,6 @@
 import { cache, createAsync } from "@solidjs/router"
 import clsx from "clsx"
-import { For } from "solid-js"
+import { createSignal, For } from "solid-js"
 import { IconTwitch, IconX, RoleIcon, TierIcon } from "~/components/Icons"
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import { Button } from "~/components/ui/button"
@@ -8,6 +8,7 @@ import { Label } from "~/components/ui/label"
 import { Progress } from "~/components/ui/progress"
 
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "~/components/ui/table"
+import { TextField, TextFieldInput, TextFieldLabel } from "~/components/ui/text-field"
 import { fetchPlayer } from "~/lib/riot"
 import type { IPlayerResponse } from "~/types"
 
@@ -24,10 +25,25 @@ export const route = {
 export default function Home() {
     const players = createAsync(() => serverGetPlayers({}), { initialValue: [], deferStream: true })
 
+    const [filter, setFilter] = createSignal("")
+
     return (
-        <main class="container mx-auto px-8">
+        <main
+            class={clsx("container mx-auto px-8 min-h-dvh", {
+                // "h-dvh": players().length < 10,
+            })}
+        >
             <h1 class="text-xl text-center py-8">Tracking The Pros - Worlds 2024</h1>
             <div>
+                <TextField class="py-4">
+                    <TextFieldInput
+                        type="text"
+                        id="filter"
+                        placeholder="Filter the players by anything. Try 'G2' or 'Faker'"
+                        value={filter()}
+                        onInput={(e) => setFilter(e.currentTarget.value)}
+                    />
+                </TextField>
                 <Table>
                     <TableCaption>
                         <p class="py-4">Tracking The Pros - Worlds 2024 | Presented by Pixel Brush</p>
@@ -44,58 +60,77 @@ export default function Home() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        <For each={players()}>
-                            {(user) => (
+                        <For
+                            each={players().filter((player) => {
+                                if (filter()) {
+                                    const isDisplay = player.display.toLocaleLowerCase().includes(filter())
+                                    const isTeam = player.team?.name.toLocaleLowerCase().includes(filter())
+                                    const isRiotId = player.account.riotId.toLocaleLowerCase().includes(filter())
+                                    const isSummoner = player.account.username.toLocaleLowerCase().includes(filter())
+                                    const isTier = player.stats?.tier.toLocaleLowerCase().includes(filter())
+                                    const isRole = player.role.toLocaleLowerCase().includes(filter())
+
+                                    return isDisplay || isTeam || isRiotId || isSummoner || isTier || isRole
+                                }
+
+                                return true
+                            })}
+                        >
+                            {(player) => (
                                 <TableRow>
                                     <TableCell>
                                         <Avatar>
                                             <AvatarImage
-                                                src={user.team?.avatar}
-                                                alt={user.team?.name}
+                                                src={player.team?.avatar}
+                                                alt={player.team?.name}
                                                 class={clsx({
-                                                    "filter-none dark:invert": user.team?.avatar.includes("g2.svg"),
-                                                    "invert dark:filter-none": user.team?.avatar.includes("tl.svg"),
-                                                    "dark:bg-white": user.team?.avatar.includes("100t.svg"),
+                                                    "filter-none dark:invert": player.team?.avatar.includes("g2.svg"),
+                                                    "invert dark:filter-none": player.team?.avatar.includes("tl.svg"),
+                                                    "dark:bg-white": player.team?.avatar.includes("100t.svg"),
                                                 })}
                                             />
-                                            <AvatarFallback>{user.team?.name}</AvatarFallback>
+                                            <AvatarFallback>{player.team?.name}</AvatarFallback>
                                         </Avatar>
                                     </TableCell>
-                                    <TableCell>{user.display}</TableCell>
+                                    <TableCell>{player.display}</TableCell>
                                     <TableCell>
                                         <Button
                                             as="a"
-                                            href={`https://www.op.gg/summoners/euw/${user.account.username}-${user.account.riotId}`}
+                                            href={`https://www.op.gg/summoners/euw/${player.account.username}-${player.account.riotId}`}
                                             target="_blank"
                                             rel="noreferrer"
                                             variant={"link"}
                                         >
-                                            {user.account.username}#{user.account.riotId}
+                                            {player.account.username}#{player.account.riotId}
                                         </Button>
                                     </TableCell>
                                     <TableCell>
-                                        <RoleIcon role={user.role} />
+                                        <RoleIcon role={player.role} />
                                     </TableCell>
-                                    <TableCell>{user.stats?.tier && <TierIcon tier={user.stats?.tier} />}</TableCell>
+                                    <TableCell>
+                                        {player.stats?.tier && <TierIcon tier={player.stats?.tier} />}
+                                    </TableCell>
                                     <TableCell>
                                         <Progress
-                                            value={user.stats?.percentage ?? 0}
-                                            fill={(user.stats?.percentage ?? 0 > 50) ? "bg-green-500" : "bg-danger"}
+                                            value={player.stats?.percentage ?? 0}
+                                            fill={(player.stats?.percentage ?? 0 > 50) ? "bg-green-500" : "bg-danger"}
                                         >
                                             <div class="grid gap-2 py-2">
                                                 <Label class="text-slate-400">
-                                                    <span>{(user.stats?.wins ?? 0) + (user.stats?.losses ?? 0)}G </span>
-                                                    <span class="">{user.stats?.wins}W</span>{" "}
-                                                    <span class="">{user.stats?.losses}L</span>{" "}
+                                                    <span>
+                                                        {(player.stats?.wins ?? 0) + (player.stats?.losses ?? 0)}G{" "}
+                                                    </span>
+                                                    <span class="">{player.stats?.wins}W</span>{" "}
+                                                    <span class="">{player.stats?.losses}L</span>{" "}
                                                 </Label>
                                                 <Label>
                                                     <span
                                                         class={clsx({
-                                                            "text-success": user.stats?.percentage ?? 0 > 50,
-                                                            "text-danger": user.stats?.percentage ?? 0 <= 50,
+                                                            "text-success": player.stats?.percentage ?? 0 > 50,
+                                                            "text-danger": player.stats?.percentage ?? 0 <= 50,
                                                         })}
                                                     >
-                                                        {user.stats?.percentage.toFixed(2)}%
+                                                        {player.stats?.percentage.toFixed(2)}%
                                                     </span>
                                                 </Label>
                                             </div>
@@ -103,7 +138,7 @@ export default function Home() {
                                     </TableCell>
                                     <TableCell>
                                         <div class="grid grid-cols-2">
-                                            <For each={user.socials ?? []}>
+                                            <For each={player.socials ?? []}>
                                                 {(social) => (
                                                     <>
                                                         {social.kind === "X" && (
