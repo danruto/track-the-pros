@@ -19,6 +19,7 @@
     "dependencies": {
         "@fontsource/inter": "^5.1.0",
         "@kobalte/core": "^0.13.6",
+        "@minimal-analytics/ga4": "^1.8.7",
         "@solidjs/router": "^0.14.1",
         "@solidjs/start": "^1.0.6",
         "autoprefixer": "^10.4.19",

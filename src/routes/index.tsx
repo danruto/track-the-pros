@@ -1,6 +1,7 @@
 import { cache, createAsync } from "@solidjs/router"
 import clsx from "clsx"
 import { createSignal, For } from "solid-js"
+
 import { IconTwitch, IconX, RoleIcon, TierIcon } from "~/components/Icons"
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import { Button } from "~/components/ui/button"
@@ -11,6 +12,7 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { TextField, TextFieldInput, TextFieldLabel } from "~/components/ui/text-field"
 import { fetchPlayer } from "~/lib/riot"
 import type { IPlayerResponse } from "~/types"
+import { isServer } from "solid-js/web"
 
 const serverGetPlayers = cache(async (opts: { limit?: number; offset?: number }): Promise<IPlayerResponse[]> => {
     "use server"

@@ -14,6 +14,9 @@ importers:
       '@kobalte/core':
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.8.22)
+      '@minimal-analytics/ga4':
+        specifier: ^1.8.7
+        version: 1.8.7
       '@solidjs/router':
         specifier: ^0.14.1
         version: 0.14.5(solid-js@1.8.22)
@@ -818,6 +821,10 @@ packages:
   '@mapbox/node-pre-gyp@1.0.11':
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
+
+  '@minimal-analytics/ga4@1.8.7':
+    resolution: {integrity: sha512-W6BVFkdOJEq8aG4i+Kg/itLD2QpJQq97oA6nrGFtWy3CIhUj1EOXOzmhd2KCl2SQd4OPY3rZBtDbczyTZYcL0Q==}
+    engines: {node: '>=16.3.0'}
 
   '@netlify/functions@2.8.1':
     resolution: {integrity: sha512-+6wtYdoz0yE06dSa9XkP47tw5zm6g13QMeCwM3MmHx1vn8hzwFa51JtmfraprdkL7amvb7gaNM+OOhQU1h6T8A==}
@@ -3869,6 +3876,8 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@minimal-analytics/ga4@1.8.7': {}
 
   '@netlify/functions@2.8.1':
     dependencies:
