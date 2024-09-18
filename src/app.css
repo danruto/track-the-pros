@@ -50,7 +50,17 @@
 
     .dark,
     [data-kb-theme="dark"] {
+        --custom-gradient-color: linear-gradient(to right, hsl(212, 40%, 24%), hsl(219, 41%, 13%));
+
+        --pb-gradient-colour: linear-gradient(to bottom right,
+                hsl(222, 47%, 11%),
+                hsl(229, 84%, 5%),
+            );
+
         --background: 240 10% 3.9%;
+        /* --bg-background: var(--custom-gradient-color); */
+        /* --background: var(--pb-gradient-colour); */
+        /* --bg-background: var(--pb-gradient-colour); */
         --foreground: 0 0% 98%;
 
         --muted: 240 3.7% 15.9%;
@@ -101,7 +111,8 @@
     }
 
     body {
-        @apply bg-background text-foreground;
+        /* @apply bg-background text-foreground; */
+        @apply h-fit dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 text-foreground;
         font-feature-settings: "rlig" 1, "calt" 1;
     }
 }

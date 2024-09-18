@@ -50,7 +50,8 @@ const fetchPlayer = async (limit: number, offset: number) => {
 
                 const now = new Date()
                 const cutoffDate = new Date()
-                cutoffDate.setHours(now.getHours() - 1)
+                // cutoffDate.setHours(now.getHours() - 1)
+                cutoffDate.setHours(now.getHours() - 24)
 
                 if (!player.account) {
                     continue

@@ -1,32 +1,16 @@
-# SolidStart
+# Tracking the Pros - Worlds 2024
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+Just a simple application in solid-start to showcase how to build an application in it and well have a nicer
+interface to track known accounts of the pro players for Worlds 2024
 
-## Creating a project
-
-```bash
-# create a new project in the current directory
-npm init solid@latest
-
-# create a new project in my-app
-npm init solid@latest my-app
-```
+[Click Here for the site](https://worlds2024.pixelbru.sh)
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install the dependencies using `pnpm install`, any of the auxiliry cli apps e.g. `biome` can be installed using the included
+nix flake and direnv `direnv allow`
 
-```bash
-npm run dev
+## Running
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
-
-## This project was created with the [Solid CLI](https://solid-cli.netlify.app)
+You will need to generate a Riot API key and save that into `.env` as `RIOT_API_KEY`. A `supabase` connection string is also
+required under the name `SUPABASE_DB_CONNSTRING`. Once those two things are in place, you can then just run it.

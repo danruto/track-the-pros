@@ -3,8 +3,10 @@ import clsx from "clsx"
 import { For } from "solid-js"
 import { IconTwitch, IconX, RoleIcon, TierIcon } from "~/components/Icons"
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
+import { Badge } from "~/components/ui/badge"
 import { Button } from "~/components/ui/button"
-import { Progress, ProgressValueLabel } from "~/components/ui/progress"
+import { Label } from "~/components/ui/label"
+import { Progress } from "~/components/ui/progress"
 
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "~/components/ui/table"
 import { fetchPlayer } from "~/lib/riot"
@@ -24,26 +26,17 @@ export default function Track() {
     const players = createAsync(() => serverGetPlayers({}), { initialValue: [], deferStream: true })
 
     return (
-        <main class="container mx-auto">
-            <h1>Track the pros</h1>
-            <p class="my-4">
-                <A href="/" class="text-sky-600 hover:underline">
-                    Home
-                </A>
-                {" - "}
-                <A href="/about" class="text-sky-600 hover:underline">
-                    About Page
-                </A>{" "}
-                {" - "}
-                <span>Track Page</span>
-            </p>
+        <main class="container mx-auto px-8">
+            <h1 class="text-xl text-center py-8">Tracking The Pros - Worlds 2024</h1>
             <div>
                 <Table>
-                    <TableCaption>Worlds 2024</TableCaption>
+                    <TableCaption>
+                        <p class="py-4">Tracking The Pros - Worlds 2024 | Presented by Pixel Brush</p>
+                    </TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead class="w-[200px]">Team</TableHead>
-                            <TableHead class="w-[200px]">Player</TableHead>
+                            <TableHead class="w-[60px]">Team</TableHead>
+                            <TableHead class="w-[100px]">Player</TableHead>
                             <TableHead>Account</TableHead>
                             <TableHead>Role</TableHead>
                             <TableHead>Rank</TableHead>
@@ -89,11 +82,24 @@ export default function Track() {
                                         <Progress
                                             value={user.stats?.percentage ?? 0}
                                             fill={(user.stats?.percentage ?? 0 > 50) ? "bg-green-500" : "bg-danger"}
-                                            getValueLabel={() =>
-                                                `${user.stats?.wins ?? 0}W ${user.stats?.losses}L at ${user.stats?.percentage.toFixed(2)}% W/R`
-                                            }
                                         >
-                                            <ProgressValueLabel />
+                                            <div class="grid gap-2 py-2">
+                                                <Label class="text-slate-400">
+                                                    <span>{(user.stats?.wins ?? 0) + (user.stats?.losses ?? 0)}G </span>
+                                                    <span class="">{user.stats?.wins}W</span>{" "}
+                                                    <span class="">{user.stats?.losses}L</span>{" "}
+                                                </Label>
+                                                <Label>
+                                                    <span
+                                                        class={clsx({
+                                                            "text-success": user.stats?.percentage ?? 0 > 50,
+                                                            "text-danger": user.stats?.percentage ?? 0 <= 50,
+                                                        })}
+                                                    >
+                                                        {user.stats?.percentage.toFixed(2)}%
+                                                    </span>
+                                                </Label>
+                                            </div>
                                         </Progress>
                                     </TableCell>
                                     <TableCell>

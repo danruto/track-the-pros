@@ -34,7 +34,8 @@
             "pnpm-lock.yaml",
             ".direnv/**",
             ".git/**",
-            "biome.json"
+            "biome.json",
+            "src/components/ui/**"
         ]
     },
     "javascript": {

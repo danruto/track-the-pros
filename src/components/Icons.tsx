@@ -69,7 +69,7 @@ export function RoleIcon(props: { role: TRole }) {
     const src = `/positions/${props.role.toLocaleLowerCase()}.png`
     const alt = props.role.toLocaleLowerCase()
 
-    return <img src={src} alt={alt} class="w-[24px]" />
+    return <img src={src} alt={alt} class="w-[24px] invert dark:filter-none" />
 }
 
 export function TierIcon(props: { tier: string }) {
