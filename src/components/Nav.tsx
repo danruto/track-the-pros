@@ -1,5 +1,6 @@
 import { useLocation } from "@solidjs/router"
 import { ModeToggle } from "./DarkModeToggle"
+import { Button } from "./ui/button"
 
 export default function Nav() {
     const location = useLocation()
@@ -10,15 +11,14 @@ export default function Nav() {
             <ul class="col-span-2 grid grid-cols-2 gap-2">
                 <li class={`border-b-2 ${active("/")} flex justify-center content-center`}>
                     <a class="m-auto" href="/">
-                        Home
-                    </a>
-                </li>
-                <li class={`border-b-2 ${active("/track")} flex justify-center content-center`}>
-                    <a class="m-auto" href="/track">
                         Worlds 2024
                     </a>
                 </li>
             </ul>
+
+            <Button as="a" href="https://pixelbru.sh" rel="noreferrer" target="_blank" variant="ghost">
+                by Pixel Brush
+            </Button>
 
             <div class="col-end-10 col-start-11">
                 <ModeToggle />

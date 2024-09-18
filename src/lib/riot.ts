@@ -44,6 +44,9 @@ const fetchPlayer = async (limit: number, offset: number) => {
     if (players.length) {
         const client = await getRiotClient()
         for (const player of players) {
+
+            let playerStat: IStat | null = null
+
             try {
                 // Queried valid players, now pull their stats into cache if it has been expired
                 // or if it is still valid then just display it
@@ -57,7 +60,6 @@ const fetchPlayer = async (limit: number, offset: number) => {
                     continue
                 }
 
-                let playerStat: IStat | null = null
 
                 const stat = await db.select().from(Stats).where(eq(Stats.account_id, player.account.id))
                 if (stat.length) {
@@ -112,23 +114,39 @@ const fetchPlayer = async (limit: number, offset: number) => {
                     }
                 }
 
-                const socials = await db.select().from(Socials).where(eq(Socials.player_id, player.id))
-
-                ret.push({
-                    ...player,
-                    account: player.account!,
-                    role: player.role as TRole,
-                    avatar: null,
-                    team: player.team ? (player.team as ITeam) : null,
-                    socials: socials?.map((social) => ({
-                        kind: social.kind as TSocialKind,
-                        value: social.value,
-                    })),
-                    stats: playerStat ?? undefined,
-                })
             } catch (ex) {
                 console.error(ex)
+
+                if (player.account) {
+                    // On rate limit errors, just use whatever we had in cache
+                    const stat = await db.select().from(Stats).where(eq(Stats.account_id, player.account.id))
+                    if (stat.length) {
+                        // Valid, just use the saved data
+                        playerStat = {
+                            wins: stat[0].wins,
+                            losses: stat[0].losses,
+                            percentage: stat[0].percentage,
+                            tier: stat[0].tier ?? "BRONZE",
+                            lp: stat[0].lp ?? 0,
+                        }
+                    }
+                }
             }
+
+            const socials = await db.select().from(Socials).where(eq(Socials.player_id, player.id))
+
+            ret.push({
+                ...player,
+                account: player.account!,
+                role: player.role as TRole,
+                avatar: null,
+                team: player.team ? (player.team as ITeam) : null,
+                socials: socials?.map((social) => ({
+                    kind: social.kind as TSocialKind,
+                    value: social.value,
+                })),
+                stats: playerStat ?? undefined,
+            })
         }
 
         return ret
