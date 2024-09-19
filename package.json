@@ -1,5 +1,9 @@
 {
-    "name": "example-with-tailwindcss",
+    "name": "tracking-the-pros-2024",
+    "version": "0.0.1",
+    "homepage": "https://github.com/danruto/track-the-pros",
+    "email": "contact@pixelbru.sh",
+    "url": "https://pixelbru.sh",
     "type": "module",
     "scripts": {
         "dev": "vinxi dev",

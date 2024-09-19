@@ -15,6 +15,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Inter", ...fontFamily.sans],
+                pixelify: ["Pixelify Sans", "sans-serif"],
+
             },
             colors: {
                 border: "hsl(var(--border))",

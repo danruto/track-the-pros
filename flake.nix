@@ -37,6 +37,8 @@
 
               deno
               netlify-cli
+
+              nodePackages_latest.vercel
             ];
           };
       });
