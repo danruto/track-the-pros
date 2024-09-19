@@ -30,4 +30,7 @@ export const client = postgres(connectionString, {
         rejectUnauthorized: false,
     },
 })
+
+console.log("Connected to db")
+
 export const db: PostgresJsDatabase = drizzle(client)
