@@ -1,10 +1,8 @@
 /// <reference types="vinxi/types/client" />
 
 interface ImportMetaEnv {
-    DB_URL: string
-    DB_MIGRATIONS_URL: string
-    SITE_NAME: string
-    SESSION_SECRET: string
+    RIOT_API_KEY: string
+    SUPABASE_DB_CONNSTRING: string
 }
 
 interface ImportMeta {
