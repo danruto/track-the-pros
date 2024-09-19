@@ -9,7 +9,7 @@ import { Label } from "~/components/ui/label"
 import { Progress } from "~/components/ui/progress"
 
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "~/components/ui/table"
-import { TextField, TextFieldInput, TextFieldLabel } from "~/components/ui/text-field"
+import { TextField, TextFieldInput } from "~/components/ui/text-field"
 import { fetchPlayer } from "~/lib/riot"
 import type { IPlayerResponse } from "~/types"
 
@@ -34,7 +34,7 @@ export default function Home() {
                 // "h-dvh": players().length < 10,
             })}
         >
-            <h1 class="text-xl text-center py-8">Tracking The Pros - Worlds 2024</h1>
+            <h1 class="text-3xl text-center py-8">Tracking The Pros - Worlds 2024</h1>
             <div>
                 <TextField class="py-4">
                     <TextFieldInput
@@ -83,6 +83,7 @@ export default function Home() {
                                         <Avatar>
                                             <AvatarImage
                                                 src={player.team?.avatar}
+                                                title={player.team?.name}
                                                 alt={player.team?.name}
                                                 class={clsx({
                                                     "filter-none dark:invert": player.team?.avatar.includes("g2.svg"),
@@ -148,6 +149,8 @@ export default function Home() {
                                                                 target="_blank"
                                                                 rel="noreferrer"
                                                                 class="size-4"
+                                                                title={social.kind}
+                                                                aria-label={social.kind}
                                                             >
                                                                 <IconX />
                                                             </a>
@@ -158,6 +161,8 @@ export default function Home() {
                                                                 target="_blank"
                                                                 rel="noreferrer"
                                                                 class="size-4"
+                                                                title={social.kind}
+                                                                aria-label={social.kind}
                                                             >
                                                                 <IconTwitch />
                                                             </a>
