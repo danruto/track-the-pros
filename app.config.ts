@@ -13,7 +13,7 @@ export default defineConfig({
         },
     },
     server: {
-        // preset: "vercel",
-        preset: "netlify",
+        preset: "vercel",
+        // preset: "netlify",
     },
 })
