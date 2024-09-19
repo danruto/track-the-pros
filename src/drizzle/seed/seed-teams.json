@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "G2",
+        "avatar": "/teams/g2.svg"
+    },
+    {
+        "id": 2,
+        "name": "Fnatic",
+        "avatar": "/teams/fnatic.svg"
+    },
+    {
+        "id": 3,
+        "name": "MAD",
+        "avatar": "/teams/mad.svg"
+    },
+    {
+        "id": 4,
+        "name": "100 Thieves",
+        "avatar": "/teams/100t.svg"
+    },
+    {
+        "id": 5,
+        "name": "R7",
+        "avatar": "/teams/r7.svg"
+    },
+    {
+        "id": 6,
+        "name": "TL",
+        "avatar": "/teams/tl.svg"
+    },
+    {
+        "id": 7,
+        "name": "FlyQuest",
+        "avatar": "/teams/flyquest.svg"
+    },
+    {
+        "id": 8,
+        "name": "T1",
+        "avatar": "/teams/t1.svg"
+    }
+]

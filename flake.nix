@@ -34,6 +34,9 @@
               nodePackages.vscode-langservers-extracted
               tailwindcss-language-server
               biome
+
+              deno
+              netlify-cli
             ];
           };
       });

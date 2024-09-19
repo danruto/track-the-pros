@@ -1,3 +1,4 @@
+.jj
 
 dist
 .solid
@@ -28,3 +29,14 @@ gitignore
 Thumbs.db
 
 .direnv
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+
+/src/drizzle/db.sqlite
+/src/drizzle/migrations
+
+# seed-*.json
+*:Zone.Identifier
