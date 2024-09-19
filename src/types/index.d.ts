@@ -20,11 +20,13 @@ export interface IStat {
 }
 
 export interface IAccount {
+    id: number
     username: string
     riotId: string
 }
 
 export interface IPlayer {
+    id: number
     display: string
 
     role: TRole

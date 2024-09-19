@@ -1,0 +1,35 @@
+[[plugins]]
+  # Installs the Lighthouse Build Plugin for all deploy contexts
+  package = "@netlify/plugin-lighthouse"
+
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "frame-ancestors https://www.facebook.com"
+
+    # Multi-value headers are expressed with multi-line strings.
+  cache-control = '''
+  max-age=0,
+  no-cache,
+  no-store,
+  must-revalidate'''
+
+[functions]
+  # Directory with serverless functions, including background
+  # functions, to deploy. This is an absolute path relative to the 
+  # base directory, which is the root by default (/).
+  directory = "/netlify/functions/"
+
+# Use [dev] to set configuration overrides for local
+# development environments run using Netlify Dev - except
+# for environment variables. Environment variables for Netlify
+# Dev should be set under [context.dev.environment] instead.
+[dev]
+  command = "pnpm dev"
+  port = 8888
+  publish = "dist"
+

@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm"
 import { db } from "~/api/db/supa"
-import { Accounts, Players, Stats, Teams, Socials } from "~/drizzle/schema-supa"
-import type { IPlayerResponse, IStat, ITeam, TRole, TSocialKind } from "~/types"
+import { Accounts, Players, Socials, Stats, Teams } from "~/drizzle/schema-supa"
+import type { IPlayer, IPlayerResponse, IStat, ITeam, TRole, TSocialKind } from "~/types"
 
 import { Client } from "shieldbow"
 
@@ -10,9 +10,61 @@ const getRiotClient = async () => {
 
     // Worlds 2024 is in EUW, so use that as the default
     const client = new Client(process.env.RIOT_API_KEY)
-    await client.initialize({ region: "euw" })
+    await client.initialize({
+        region: "euw",
+        ratelimiter: {
+            retry: {
+                retries: 3,
+                retryDelay: 5000,
+            },
+            throw: false,
+            strategy: "spread",
+        },
+    })
 
     return client
+}
+
+const updatePlayerStats = async (
+    client: Client,
+    options: {
+        username: string
+        riotId: string
+        playerId: number
+        accountId: number
+    },
+) => {
+    const account = await client.accounts.fetchByNameAndTag(options.username, options.riotId)
+    const summoner = await client.summoners.fetchByPlayerId(account.playerId)
+    const leagueEntry = await summoner.fetchLeagueEntries()
+    const soloQ = leagueEntry.get("RANKED_SOLO_5x5")
+
+    if (soloQ) {
+        const data = {
+            updatedAt: new Date(),
+            wins: soloQ.wins,
+            losses: soloQ.losses,
+            percentage: (soloQ.wins / (soloQ.wins + soloQ.losses)) * 100,
+            lp: soloQ.lp,
+            tier: soloQ.tier,
+            player_id: options.playerId,
+            account_id: options.accountId,
+        }
+
+        await db
+            .insert(Stats)
+            // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+            .values(data as unknown as any)
+            .onConflictDoUpdate({
+                target: [Stats.player_id, Stats.account_id],
+                // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+                set: data as unknown as any,
+            })
+
+        return data
+    }
+
+    return null
 }
 
 const fetchPlayer = async (limit: number, offset: number) => {
@@ -44,7 +96,6 @@ const fetchPlayer = async (limit: number, offset: number) => {
     if (players.length) {
         const client = await getRiotClient()
         for (const player of players) {
-
             let playerStat: IStat | null = null
 
             try {
@@ -59,7 +110,6 @@ const fetchPlayer = async (limit: number, offset: number) => {
                 if (!player.account) {
                     continue
                 }
-
 
                 const stat = await db.select().from(Stats).where(eq(Stats.account_id, player.account.id))
                 if (stat.length) {
@@ -76,44 +126,13 @@ const fetchPlayer = async (limit: number, offset: number) => {
                 }
 
                 if (!playerStat) {
-                    const account = await client.accounts.fetchByNameAndTag(
-                        player.account.username,
-                        player.account.riotId,
-                    )
-                    const summoner = await client.summoners.fetchByPlayerId(account.playerId)
-                    const leagueEntry = await summoner.fetchLeagueEntries()
-                    const soloQ = leagueEntry.get("RANKED_SOLO_5x5")
-
-                    if (soloQ) {
-                        const data = {
-                            updatedAt: new Date(),
-                            wins: soloQ.wins,
-                            losses: soloQ.losses,
-                            percentage: (soloQ.wins / (soloQ.wins + soloQ.losses)) * 100,
-                            lp: soloQ.lp,
-                            tier: soloQ.tier,
-                            player_id: player.id,
-                            account_id: player.account.id,
-                        }
-
-                        await db
-                            .insert(Stats)
-                            .values(data)
-                            .onConflictDoUpdate({
-                                target: [Stats.player_id, Stats.account_id],
-                                set: data,
-                            })
-
-                        playerStat = {
-                            wins: data.wins,
-                            losses: data.losses,
-                            percentage: data.percentage,
-                            tier: data.tier,
-                            lp: data.lp,
-                        }
-                    }
+                    playerStat = await updatePlayerStats(client, {
+                        username: player.account.username,
+                        riotId: player.account.riotId,
+                        playerId: player.id,
+                        accountId: player.account.id,
+                    })
                 }
-
             } catch (ex) {
                 console.error(ex)
 
@@ -155,4 +174,4 @@ const fetchPlayer = async (limit: number, offset: number) => {
     return []
 }
 
-export { fetchPlayer }
+export { getRiotClient, fetchPlayer, updatePlayerStats }
