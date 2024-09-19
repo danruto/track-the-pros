@@ -418,5 +418,41 @@
         "kind": "X",
         "value": "mithygg",
         "player_id": 39
+    },
+    {
+        "id": 71,
+        "kind": "Twitch",
+        "value": "titanlol1",
+        "player_id": 40
+    },
+    {
+        "id": 72,
+        "kind": "X",
+        "value": "lolwizer",
+        "player_id": 41
+    },
+    {
+        "id": 73,
+        "kind": "X",
+        "value": "carioklol",
+        "player_id": 42
+    },
+    {
+        "id": 74,
+        "kind": "Twitch",
+        "value": "lol_kuri",
+        "player_id": 43
+    },
+    {
+        "id": 75,
+        "kind": "X",
+        "value": "KuriLoL_",
+        "player_id": 43
+    },
+    {
+        "id": 76,
+        "kind": "Twitch",
+        "value": "dynquedo1",
+        "player_id": 44
     }
 ]

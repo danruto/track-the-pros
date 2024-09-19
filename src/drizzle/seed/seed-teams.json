@@ -38,5 +38,15 @@
         "id": 8,
         "name": "T1",
         "avatar": "/teams/t1.svg"
+    },
+    {
+        "id": 9,
+        "name": "PNG",
+        "avatar": "/teams/png.svg"
+    },
+    {
+        "id": 10,
+        "name": "PSG",
+        "avatar": "/teams/psg.svg"
     }
 ]
