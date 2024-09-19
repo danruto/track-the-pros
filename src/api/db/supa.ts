@@ -4,7 +4,6 @@ import postgres from "postgres"
 const connectionString = process.env.SUPABASE_DB_CONNSTRING
 
 if (!connectionString) throw new Error("Unable to setup supabase database without connection string")
-console.log("connstr", connectionString)
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
 export const client = postgres(connectionString, { prepare: false })
