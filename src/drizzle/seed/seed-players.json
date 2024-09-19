@@ -271,5 +271,82 @@
         "role": "Coach",
         "avatar": "",
         "team_id": 7
+    },
+    {
+        "id": 40,
+        "display": "TitaN",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 9
+    },
+    {
+        "id": 41,
+        "display": "Wizer",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 9
+    },
+    {
+        "id": 42,
+        "display": "Cariok",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 9
+    },
+    {
+        "id": 43,
+        "display": "Kuri",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 9
+    },
+    {
+        "id": 44,
+        "display": "dyNquedo",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 9
+    },
+    {
+        "id": 45,
+        "display": "Azhi",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 10
+    },
+    {
+        "id": 46,
+        "display": "Woody",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 10
+    },
+    {
+        "id": 47,
+        "display": "Betty",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 10
+    },
+    {
+        "id": 48,
+        "display": "JunJia",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 10
+    },
+    {
+        "id": 49,
+        "display": "HongSuo",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 10
+    },
+    {
+        "id": 50,
+        "display": "Maple",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 10
     }
 ]

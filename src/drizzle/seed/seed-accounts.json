@@ -232,5 +232,71 @@
         "username": "Grandpa Alf",
         "riot_id": "EUW",
         "player_id": 39
+    },
+    {
+        "id": 40,
+        "username": "PNG XSQDL",
+        "riot_id": "XSQDL",
+        "player_id": 40
+    },
+    {
+        "id": 41,
+        "username": "PNG Wizer",
+        "riot_id": "paiN",
+        "player_id": 41
+    },
+    {
+        "id": 42,
+        "username": "PNG CarioK",
+        "riot_id": "br2",
+        "player_id": 42
+    },
+    {
+        "id": 43,
+        "username": "PNG Kuri",
+        "riot_id": "0808",
+        "player_id": 43
+    },
+    {
+        "id": 44,
+        "username": "PNG dyNquedo",
+        "riot_id": "1010",
+        "player_id": 44
+    },
+    {
+        "id": 45,
+        "username": "柏林聖日耳曼",
+        "riot_id": "PSG",
+        "player_id": 45
+    },
+    {
+        "id": 46,
+        "username": "Naruto3",
+        "riot_id": "123",
+        "player_id": 46
+    },
+    {
+        "id": 47,
+        "username": "巴黎聖日耳曼",
+        "riot_id": "PSG",
+        "player_id": 47
+    },
+    {
+        "id": 48,
+        "username": "庭不下來",
+        "riot_id": "0610",
+        "player_id": 48
+    },
+    {
+        "id": 49,
+        "username": "HongSuo",
+        "riot_id": "8181",
+        "player_id": 49
+    },
+    {
+        "id": 50,
+        "username": "楓棠珍珠奶茶",
+        "riot_id": "psg",
+        "player_id": 50
     }
 ]
