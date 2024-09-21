@@ -1,32 +1,32 @@
 [
     {
         "id": 1,
-        "username": "TheShackledOne",
-        "riot_id": "003",
+        "username": "Dr Orange",
+        "riot_id": "Caps",
         "player_id": 1
     },
     {
         "id": 2,
-        "username": "TheShackledOne",
-        "riot_id": "004",
+        "username": "Dr Mango",
+        "riot_id": "Hans",
         "player_id": 2
     },
     {
         "id": 3,
-        "username": "TheShackledOne",
-        "riot_id": "005",
+        "username": "Dr Dragonfruit",
+        "riot_id": "Miky",
         "player_id": 3
     },
     {
         "id": 4,
-        "username": "TheShackledOne",
-        "riot_id": "001",
+        "username": "Dr BlackBerry",
+        "riot_id": "Blade",
         "player_id": 4
     },
     {
         "id": 5,
-        "username": "TheShackledOne",
-        "riot_id": "002",
+        "username": "Dr Coconut",
+        "riot_id": "yiken",
         "player_id": 5
     },
     {
@@ -49,8 +49,8 @@
     },
     {
         "id": 9,
-        "username": "papi oscar",
-        "riot_id": "GOAT",
+        "username": "CABALLO GANADOR",
+        "riot_id": "CTANG",
         "player_id": 9
     },
     {

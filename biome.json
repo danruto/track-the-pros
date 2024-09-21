@@ -16,6 +16,9 @@
             "pnpm-lock.yaml",
             ".direnv/**",
             ".git/**",
+            ".netlify",
+            ".vercel",
+            ".vinxi",
             "biome.json"
         ]
     },
@@ -34,6 +37,9 @@
             "pnpm-lock.yaml",
             ".direnv/**",
             ".git/**",
+            ".netlify",
+            ".vercel",
+            ".vinxi",
             "biome.json",
             "src/components/ui/**"
         ]
