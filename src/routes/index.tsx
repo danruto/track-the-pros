@@ -121,6 +121,8 @@ export default function Home() {
                                         >
                                             <div class="grid gap-2 py-2">
                                                 <Label class="text-slate-400">
+                                                    <span>{player.stats?.lp}LP</span>
+                                                    <span> | </span>
                                                     <span>
                                                         {(player.stats?.wins ?? 0) + (player.stats?.losses ?? 0)}G{" "}
                                                     </span>

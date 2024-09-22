@@ -348,5 +348,47 @@
         "role": "Mid",
         "avatar": "",
         "team_id": 10
+    },
+    {
+        "id": 51,
+        "display": "Kati",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 11
+    },
+    {
+        "id": 52,
+        "display": "SofM",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 11
+    },
+    {
+        "id": 53,
+        "display": "Shogun",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 11
+    },
+    {
+        "id": 54,
+        "display": "Gury",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 11
+    },
+    {
+        "id": 55,
+        "display": "TomRio",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 11
+    },
+    {
+        "id": 56,
+        "display": "Bie",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 11
     }
 ]

@@ -21,6 +21,7 @@ export const Accounts = pgTable("accounts", {
     id: serial("id").primaryKey().unique().notNull(),
     username: text("username").notNull(),
     riot_id: text("riot_id").notNull(),
+    puuid: text("puuid"),
 
     player_id: serial("player_id").references(() => Players.id),
 })

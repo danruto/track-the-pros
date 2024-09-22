@@ -21,8 +21,10 @@ export interface IStat {
 
 export interface IAccount {
     id: number
+    puuid?: string
     username: string
     riotId: string
+    playerId: number
 }
 
 export interface IPlayer {
@@ -30,7 +32,7 @@ export interface IPlayer {
     display: string
 
     role: TRole
-    team: ITeam | null
+    team: ITeam
     avatar: string | null
 
     account: IAccount

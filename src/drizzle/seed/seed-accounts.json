@@ -3,17 +3,20 @@
         "id": 1,
         "username": "Dr Orange",
         "riot_id": "Caps",
+        "puuid": null,
         "player_id": 1
     },
     {
         "id": 2,
         "username": "Dr Mango",
+        "puuid": null,
         "riot_id": "Hans",
         "player_id": 2
     },
     {
         "id": 3,
         "username": "Dr Dragonfruit",
+        "puuid": null,
         "riot_id": "Miky",
         "player_id": 3
     },
@@ -21,47 +24,55 @@
         "id": 4,
         "username": "Dr BlackBerry",
         "riot_id": "Blade",
+        "puuid": null,
         "player_id": 4
     },
     {
         "id": 5,
         "username": "Dr Coconut",
         "riot_id": "yiken",
+        "puuid": null,
         "player_id": 5
     },
     {
         "id": 6,
         "username": "Cachorro Alpha",
         "riot_id": "razzz",
+        "puuid": null,
         "player_id": 6
     },
     {
         "id": 7,
         "username": "europe",
         "riot_id": "a12",
+        "puuid": null,
         "player_id": 7
     },
     {
         "id": 8,
         "username": "Wesley Warren jr",
         "riot_id": "EUW",
+        "puuid": null,
         "player_id": 8
     },
     {
         "id": 9,
         "username": "CABALLO GANADOR",
         "riot_id": "CTANG",
+        "puuid": null,
         "player_id": 9
     },
     {
         "id": 10,
         "username": "Noah7",
         "riot_id": "Euw2",
+        "puuid": null,
         "player_id": 10
     },
     {
         "id": 11,
         "username": "alvarooo",
+        "puuid": null,
         "riot_id": "EUW",
         "player_id": 11
     },
@@ -69,234 +80,315 @@
         "id": 12,
         "username": "tukaan",
         "riot_id": "tukan",
+        "puuid": null,
         "player_id": 12
     },
     {
         "id": 13,
         "username": "Mametchi",
         "riot_id": "tukan",
+        "puuid": null,
         "player_id": 13
     },
     {
         "id": 14,
         "username": "komanche uchiha",
         "riot_id": "elite",
+        "puuid": null,
         "player_id": 14
     },
     {
         "id": 15,
         "username": "Mualani C6",
         "riot_id": "Myrwn",
+        "puuid": null,
         "player_id": 15
     },
     {
         "id": 16,
         "username": "quid not quad",
         "riot_id": "100",
+        "puuid": null,
         "player_id": 16
     },
     {
         "id": 17,
         "username": "100 Batman",
         "riot_id": "Jaw",
+        "puuid": null,
         "player_id": 17
     },
     {
         "id": 18,
         "username": "QQQQQQQQ",
         "riot_id": "NA3",
+        "puuid": null,
         "player_id": 18
     },
     {
         "id": 19,
         "username": "wanderingTravelr",
         "riot_id": "EUW",
+        "puuid": null,
         "player_id": 19
     },
     {
         "id": 20,
         "username": "taste of texas",
         "riot_id": "TEXAS",
+        "puuid": null,
         "player_id": 20
     },
     {
         "id": 21,
         "username": "Cacoxo",
         "riot_id": "oxxo",
+        "puuid": null,
         "player_id": 21
     },
     {
         "id": 22,
         "username": "Liiv Summit",
         "riot_id": "R77",
+        "puuid": null,
         "player_id": 22
     },
     {
         "id": 23,
         "username": "the last dance",
         "riot_id": "R777",
+        "puuid": null,
         "player_id": 23
     },
     {
         "id": 24,
         "username": "FLY Quad",
         "riot_id": "R7777",
+        "puuid": null,
         "player_id": 24
     },
     {
         "id": 25,
         "username": "IHATEYOU",
         "riot_id": "TL7",
+        "puuid": null,
         "player_id": 25
     },
     {
         "id": 26,
         "username": "TL Honda CoreJJ",
         "riot_id": "EUEU",
+        "puuid": null,
         "player_id": 26
     },
     {
         "id": 27,
         "username": "TL El Debutante",
         "riot_id": "mid",
+        "puuid": null,
         "player_id": 27
     },
     {
         "id": 28,
         "username": "Mute ALL",
         "riot_id": "apa",
+        "puuid": null,
         "player_id": 28
     },
     {
         "id": 29,
         "username": "massu fanboy9",
         "riot_id": "ROTY",
+        "puuid": null,
         "player_id": 29
     },
     {
         "id": 30,
         "username": "TL APA",
         "riot_id": "NOOB",
+        "puuid": null,
         "player_id": 30
     },
     {
         "id": 31,
         "username": "TL1",
         "riot_id": "EU1",
+        "puuid": null,
         "player_id": 31
     },
     {
         "id": 32,
         "username": "Shajara",
         "riot_id": "3636",
+        "puuid": null,
         "player_id": 32
     },
     {
         "id": 33,
         "username": "OG Mithy",
         "riot_id": "Moo",
+        "puuid": null,
         "player_id": 33
     },
     {
         "id": 34,
         "username": "Varian Wrynn",
         "riot_id": "1810",
+        "puuid": null,
         "player_id": 34
     },
     {
         "id": 35,
         "username": "nukeduck1",
         "riot_id": "fly",
+        "puuid": null,
         "player_id": 35
     },
     {
         "id": 36,
         "username": "FLY Quad",
         "riot_id": "0310",
+        "puuid": null,
         "player_id": 36
     },
     {
         "id": 37,
         "username": "DAS BURGER STEIN",
         "riot_id": "BELLY",
+        "puuid": null,
         "player_id": 37
     },
     {
         "id": 38,
         "username": "DRAATATATA",
         "riot_id": "TAT",
+        "puuid": null,
         "player_id": 38
     },
     {
         "id": 39,
         "username": "Grandpa Alf",
         "riot_id": "EUW",
+        "puuid": null,
         "player_id": 39
     },
     {
         "id": 40,
         "username": "PNG XSQDL",
         "riot_id": "XSQDL",
+        "puuid": null,
         "player_id": 40
     },
     {
         "id": 41,
         "username": "PNG Wizer",
         "riot_id": "paiN",
+        "puuid": null,
         "player_id": 41
     },
     {
         "id": 42,
         "username": "PNG CarioK",
         "riot_id": "br2",
+        "puuid": null,
         "player_id": 42
     },
     {
         "id": 43,
         "username": "PNG Kuri",
         "riot_id": "0808",
+        "puuid": null,
         "player_id": 43
     },
     {
         "id": 44,
         "username": "PNG dyNquedo",
         "riot_id": "1010",
+        "puuid": null,
         "player_id": 44
     },
     {
         "id": 45,
         "username": "柏林聖日耳曼",
         "riot_id": "PSG",
+        "puuid": null,
         "player_id": 45
     },
     {
         "id": 46,
         "username": "Naruto3",
         "riot_id": "123",
+        "puuid": null,
         "player_id": 46
     },
     {
         "id": 47,
         "username": "巴黎聖日耳曼",
         "riot_id": "PSG",
+        "puuid": null,
         "player_id": 47
     },
     {
         "id": 48,
         "username": "庭不下來",
         "riot_id": "0610",
+        "puuid": null,
         "player_id": 48
     },
     {
         "id": 49,
         "username": "HongSuo",
         "riot_id": "8181",
+        "puuid": null,
         "player_id": 49
     },
     {
         "id": 50,
         "username": "楓棠珍珠奶茶",
         "riot_id": "psg",
+        "puuid": null,
         "player_id": 50
+    },
+    {
+        "id": 51,
+        "username": "Kati",
+        "riot_id": "VKE",
+        "puuid": null,
+        "player_id": 51
+    },
+    {
+        "id": 52,
+        "username": "SofM",
+        "riot_id": "Ike",
+        "puuid": null,
+        "player_id": 52
+    },
+    {
+        "id": 53,
+        "username": "zxcasdqwe",
+        "riot_id": "zzz",
+        "puuid": null,
+        "player_id": 53
+    },
+    {
+        "id": 54,
+        "username": "VKE",
+        "riot_id": "Gury",
+        "puuid": null,
+        "player_id": 54
+    },
+    {
+        "id": 55,
+        "username": "Tom23",
+        "riot_id": "1404",
+        "puuid": null,
+        "player_id": 55
+    },
+    {
+        "id": 56,
+        "username": "VKE SUP",
+        "riot_id": "kkkk",
+        "puuid": null,
+        "player_id": 56
     }
 ]

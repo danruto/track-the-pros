@@ -5,8 +5,11 @@ import { createHandler, StartServer } from "@solidjs/start/server"
 
 import { db } from "~/api/db/supa"
 import { seed_sqlite, seed_supa } from "~/drizzle/seed"
-// seed_sqlite(db)
-seed_supa(db)
+
+if (process.env.RUN_SEED) {
+    // seed_sqlite(db)
+    seed_supa(db)
+}
 
 export default createHandler(() => (
     <StartServer

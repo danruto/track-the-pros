@@ -48,5 +48,10 @@
         "id": 10,
         "name": "PSG",
         "avatar": "/teams/psg.svg"
+    },
+    {
+        "id": 11,
+        "name": "VKE",
+        "avatar": "/teams/vke.svg"
     }
 ]
