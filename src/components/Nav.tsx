@@ -1,4 +1,3 @@
-import { useLocation } from "@solidjs/router"
 import { ModeToggle } from "./DarkModeToggle"
 import { Button } from "./ui/button"
 import { IconGithub } from "./Icons"
@@ -14,7 +13,7 @@ export default function Nav() {
                 variant="link"
                 class="justify-start text-2xl font-extrabold font-pixelify [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-indigo-200/60 to-70% to-indigo-400/80"
             >
-                Pixel Brush
+                PIXEL BRUSH
             </Button>
 
             <div class="col-end-8 col-start-8 gap-4 flex justify-center content-center">
