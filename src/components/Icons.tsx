@@ -77,7 +77,7 @@ export function IconGithub(props: IconProps) {
 export function RoleIcon(props: { role: TRole }) {
     const src =
         process.env.VERCEL_ENV === "production"
-            ? `_vercel/image?url=${encodeURIComponent(`/positions/${props.role.toLocaleLowerCase()}.png&w=24`)}`
+            ? `_vercel/image?url=${encodeURIComponent(`/positions/${props.role.toLocaleLowerCase()}.png`)}&w=24&q=100`
             : `/positions/${props.role.toLocaleLowerCase()}.png`
     const alt = props.role.toLocaleLowerCase()
 
@@ -87,7 +87,7 @@ export function RoleIcon(props: { role: TRole }) {
 export function TierIcon(props: { tier: string }) {
     const src =
         process.env.VERCEL_ENV === "production"
-            ? `/_vercel/image?url=${encodeURIComponent(`/emblems/${props.tier.toLocaleLowerCase()}.png&w=24`)}`
+            ? `/_vercel/image?url=${encodeURIComponent(`/emblems/${props.tier.toLocaleLowerCase()}.png`)}&w=24&q=100`
             : `/emblems/${props.tier.toLocaleLowerCase()}.png`
     const alt = props.tier.toLocaleLowerCase()
 
