@@ -34,12 +34,12 @@ export async function seed_sqlite(db: BetterSQLite3Database) {
 }
 
 export async function seed_supa(db: PostgresJsDatabase) {
-    console.log("Seeding...")
+    console.log("[seed_supa] Seeding...")
 
     await db.insert(PGTeams).values(teamsData).onConflictDoNothing()
     await db.insert(PGPlayers).values(playersData).onConflictDoNothing()
     await db.insert(PGAccounts).values(accountsData).onConflictDoNothing()
     await db.insert(PGSocials).values(socialsData).onConflictDoNothing()
 
-    console.log("Seeded")
+    console.log("[seed_supa] Seeded")
 }

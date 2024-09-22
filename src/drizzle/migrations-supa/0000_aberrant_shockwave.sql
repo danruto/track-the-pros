@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS "accounts" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"username" text NOT NULL,
 	"riot_id" text NOT NULL,
+	"puuid" text,
 	"player_id" serial NOT NULL,
 	CONSTRAINT "accounts_id_unique" UNIQUE("id")
 );

@@ -1,7 +1,7 @@
-import { eq } from "drizzle-orm"
+import { desc, eq, isNotNull } from "drizzle-orm"
 import { db } from "~/api/db/supa"
 import { Accounts, Players, Socials, Stats, Teams } from "~/drizzle/schema-supa"
-import type { IPlayer, IPlayerResponse, IStat, ITeam, TRole, TSocialKind } from "~/types"
+import type { IAccount, IPlayerResponse, ISocial, IStat, ITeam, TRole } from "~/types"
 
 import { Client } from "shieldbow"
 
@@ -25,19 +25,39 @@ const getRiotClient = async () => {
     return client
 }
 
-const updatePlayerStats = async (
-    client: Client,
-    options: {
-        username: string
-        riotId: string
-        playerId: number
-        accountId: number
-    },
-) => {
-    const account = await client.accounts.fetchByNameAndTag(options.username, options.riotId)
-    const summoner = await client.summoners.fetchByPlayerId(account.playerId)
+const updatePlayerStats = async (client: Client, account: IAccount) => {
+    let fetchedAccount = null
+    let puuid = account.puuid
+    if (!puuid) {
+        fetchedAccount = await client.accounts.fetchByNameAndTag(account.username, account.riotId)
+        puuid = fetchedAccount.playerId
+    }
+    const summoner = await client.summoners.fetchByPlayerId(puuid)
+    if (!fetchedAccount) fetchedAccount = await summoner.fetchAccount()
     const leagueEntry = await summoner.fetchLeagueEntries()
     const soloQ = leagueEntry.get("RANKED_SOLO_5x5")
+
+    // If the account name and riot id has changed, then save it
+    if (account.username !== fetchedAccount.username || account.riotId !== fetchedAccount.userTag || !account.puuid) {
+        console.log("[updatePlayerStats] Account name has changed", { account, fetchedAccount })
+        const data = {
+            id: account.id,
+            username: fetchedAccount.username,
+            riot_id: fetchedAccount.userTag,
+            puuid: fetchedAccount.playerId,
+            player_id: account.playerId,
+        }
+
+        await db
+            .insert(Accounts)
+            // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+            .values(data as unknown as any)
+            .onConflictDoUpdate({
+                target: [Accounts.id],
+                // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+                set: data as unknown as any,
+            })
+    }
 
     if (soloQ) {
         const data = {
@@ -47,8 +67,8 @@ const updatePlayerStats = async (
             percentage: (soloQ.wins / (soloQ.wins + soloQ.losses)) * 100,
             lp: soloQ.lp,
             tier: soloQ.tier,
-            player_id: options.playerId,
-            account_id: options.accountId,
+            player_id: account.playerId,
+            account_id: account.id,
         }
 
         await db
@@ -68,7 +88,9 @@ const updatePlayerStats = async (
 }
 
 const fetchPlayer = async (limit: number, offset: number) => {
-    // Fetch all accounts and mangle the types to something we can use on the frontend
+    // Fetch all the player accounts that we can use.
+    // The data itself, will be updated via a cron job or manually by making a GET request to
+    // `/api/upsert-stats`
     const players = await db
         .select({
             id: Players.id,
@@ -81,90 +103,47 @@ const fetchPlayer = async (limit: number, offset: number) => {
             avatar: Players.avatar,
             account: {
                 id: Accounts.id,
+                playerId: Accounts.player_id,
                 username: Accounts.username,
                 riotId: Accounts.riot_id,
+                puuid: Accounts.puuid,
+            },
+            stats: {
+                wins: Stats.wins,
+                losses: Stats.losses,
+                percentage: Stats.percentage,
+                lp: Stats.lp,
+                tier: Stats.tier,
             },
         })
         .from(Players)
         .limit(limit)
         .offset(offset)
+        .orderBy(desc(Stats.lp))
         .leftJoin(Accounts, eq(Players.id, Accounts.player_id))
         .leftJoin(Teams, eq(Teams.id, Players.team_id))
+        .leftJoin(Stats, eq(Stats.account_id, Accounts.id))
+
+        .where(isNotNull(Stats.lp))
 
     const ret: IPlayerResponse[] = []
 
+    // Convert from the db select statement into a IPlayerResponse
     if (players.length) {
-        const client = await getRiotClient()
         for (const player of players) {
-            let playerStat: IStat | null = null
-
-            try {
-                // Queried valid players, now pull their stats into cache if it has been expired
-                // or if it is still valid then just display it
-
-                const now = new Date()
-                const cutoffDate = new Date()
-                // cutoffDate.setHours(now.getHours() - 1)
-                cutoffDate.setHours(now.getHours() - 24)
-
-                if (!player.account) {
-                    continue
-                }
-
-                const stat = await db.select().from(Stats).where(eq(Stats.account_id, player.account.id))
-                if (stat.length) {
-                    if (stat[0].updatedAt > cutoffDate) {
-                        // Valid, just use the saved data
-                        playerStat = {
-                            wins: stat[0].wins,
-                            losses: stat[0].losses,
-                            percentage: stat[0].percentage,
-                            tier: stat[0].tier ?? "BRONZE",
-                            lp: stat[0].lp ?? 0,
-                        }
-                    }
-                }
-
-                if (!playerStat) {
-                    playerStat = await updatePlayerStats(client, {
-                        username: player.account.username,
-                        riotId: player.account.riotId,
-                        playerId: player.id,
-                        accountId: player.account.id,
-                    })
-                }
-            } catch (ex) {
-                console.error(ex)
-
-                if (player.account) {
-                    // On rate limit errors, just use whatever we had in cache
-                    const stat = await db.select().from(Stats).where(eq(Stats.account_id, player.account.id))
-                    if (stat.length) {
-                        // Valid, just use the saved data
-                        playerStat = {
-                            wins: stat[0].wins,
-                            losses: stat[0].losses,
-                            percentage: stat[0].percentage,
-                            tier: stat[0].tier ?? "BRONZE",
-                            lp: stat[0].lp ?? 0,
-                        }
-                    }
-                }
-            }
-
             const socials = await db.select().from(Socials).where(eq(Socials.player_id, player.id))
 
             ret.push({
                 ...player,
-                account: player.account!,
+                account: {
+                    ...player.account!,
+                    puuid: player.account?.puuid ?? undefined,
+                },
                 role: player.role as TRole,
                 avatar: null,
-                team: player.team ? (player.team as ITeam) : null,
-                socials: socials?.map((social) => ({
-                    kind: social.kind as TSocialKind,
-                    value: social.value,
-                })),
-                stats: playerStat ?? undefined,
+                team: player.team! as ITeam,
+                socials: socials as ISocial[],
+                stats: player.stats! as IStat,
             })
         }
 
