@@ -53,5 +53,15 @@
         "id": 11,
         "name": "VKE",
         "avatar": "/teams/vke.svg"
+    },
+    {
+        "id": 12,
+        "name": "GAM",
+        "avatar": "/teams/gam.svg"
+    },
+    {
+        "id": 13,
+        "name": "SHG",
+        "avatar": "/teams/shg.svg"
     }
 ]

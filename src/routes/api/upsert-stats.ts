@@ -12,7 +12,12 @@ const handler = async () => {
     const cutoffDate = new Date()
     cutoffDate.setHours(now.getHours() - 1)
 
-    const limit = 100
+    // Riot API limit for our key is ~40.
+    // So just set it to that for now
+    // and have the cron run multiple times
+    // between 0 < n < cutoffDate
+    // within the Riot API limits
+    const limit = process.env.UPSERT_LIMIT ? Number.parseInt(process.env.UPSERT_LIMIT, 10) : 40
     const offset = 0
 
     const client = await getRiotClient()
@@ -33,25 +38,21 @@ const handler = async () => {
     console.log("Found accounts to update", accounts.length)
 
     // Queue update on them
-    await Promise.all(
-        accounts.map(async (account) => {
-            // console.log("[upsert-stats] Processing", { account })
-
-            try {
-                await updatePlayerStats(client, {
+    try {
+        await Promise.all(
+            accounts.map((account) => {
+                return updatePlayerStats(client, {
                     id: account.accounts.id,
                     puuid: account.accounts.puuid ?? undefined,
                     username: account.accounts.username,
                     riotId: account.accounts.riot_id,
                     playerId: account.accounts.player_id,
                 })
-            } catch (ex) {
-                console.error("Failed to process account", { account, ex })
-            }
-
-            // console.log("[upsert-stats] Processed", { account })
-        }),
-    )
+            }),
+        )
+    } catch (ex) {
+        console.error(ex)
+    }
 
     console.log("[upsert-stats] Completed")
 

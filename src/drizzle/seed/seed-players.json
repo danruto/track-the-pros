@@ -390,5 +390,96 @@
         "role": "Support",
         "avatar": "",
         "team_id": 11
+    },
+    {
+        "id": 57,
+        "display": "Levi",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 58,
+        "display": "Emo",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 59,
+        "display": "Kiaya",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 60,
+        "display": "Neo",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 61,
+        "display": "Archie",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 62,
+        "display": "EasyLove",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 63,
+        "display": "Elio",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 12
+    },
+    {
+        "id": 64,
+        "display": "Marble",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 13
+    },
+    {
+        "id": 65,
+        "display": "Vsta",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 13
+    },
+    {
+        "id": 66,
+        "display": "ankochan",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 13
+    },
+    {
+        "id": 67,
+        "display": "Evi",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 13
+    },
+    {
+        "id": 68,
+        "display": "Tussle",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 13
+    },
+    {
+        "id": 69,
+        "display": "Forest",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 13
     }
 ]

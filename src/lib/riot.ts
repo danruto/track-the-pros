@@ -26,6 +26,8 @@ const getRiotClient = async () => {
 }
 
 const updatePlayerStats = async (client: Client, account: IAccount) => {
+    console.log(`[updatePlayerStats] for ${account.username}`)
+
     let fetchedAccount = null
     let puuid = account.puuid
     if (!puuid) {
@@ -36,6 +38,8 @@ const updatePlayerStats = async (client: Client, account: IAccount) => {
     if (!fetchedAccount) fetchedAccount = await summoner.fetchAccount()
     const leagueEntry = await summoner.fetchLeagueEntries()
     const soloQ = leagueEntry.get("RANKED_SOLO_5x5")
+
+    console.log(`[updatePlayerStats] Fetched data from riot for ${account.username}`)
 
     // If the account name and riot id has changed, then save it
     if (account.username !== fetchedAccount.username || account.riotId !== fetchedAccount.userTag || !account.puuid) {
@@ -71,6 +75,8 @@ const updatePlayerStats = async (client: Client, account: IAccount) => {
             account_id: account.id,
         }
 
+        console.log(`[updatePlayerStats] Updating stats entry in db for ${account.username}`, { data })
+
         await db
             .insert(Stats)
             // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -81,8 +87,12 @@ const updatePlayerStats = async (client: Client, account: IAccount) => {
                 set: data as unknown as any,
             })
 
+        console.log(`[updatePlayerStats] Updated for ${account.username}`)
+
         return data
     }
+
+    console.log(`[updatePlayerStats] No soloq record for ${account.username}`)
 
     return null
 }
