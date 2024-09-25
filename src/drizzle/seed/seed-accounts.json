@@ -3,20 +3,20 @@
         "id": 1,
         "username": "Dr Orange",
         "riot_id": "Caps",
-        "puuid": null,
+        "puuid": "botA_iXkh4T0o8Krl7Ip3npq1_BB9hFhg-vPiJnRexxkIpnRTGoSLkugHQ89eRgiYYt2GYDZCANIbw",
         "player_id": 1
     },
     {
         "id": 2,
         "username": "Dr Mango",
-        "puuid": null,
+        "puuid": "9xMbm6nLrYLDjwa2tHKakGcPEs2swdd2X52r6ccpeb-lNznwhLxNUC5tChOefNfJ4209Xy90Uoe_2A",
         "riot_id": "Hans",
         "player_id": 2
     },
     {
         "id": 3,
         "username": "Dr Dragonfruit",
-        "puuid": null,
+        "puuid": "bPLi2tgF-Yhr7FchNrcjuuq0uel4GpQKjkFUTJMfBpl9HVZ0RQ8AhCFejtHgT5wP6BKufI-shglhZw",
         "riot_id": "Miky",
         "player_id": 3
     },
@@ -24,55 +24,55 @@
         "id": 4,
         "username": "Dr BlackBerry",
         "riot_id": "Blade",
-        "puuid": null,
+        "puuid": "kToZJS1P_LNuwUZMXFwo487Ks3EBV1q4jUs5e8ORNkrMDMALtkRxsp1VTPWoE_6NjE2iu4LK4CHong",
         "player_id": 4
     },
     {
         "id": 5,
         "username": "Dr Coconut",
         "riot_id": "yiken",
-        "puuid": null,
+        "puuid": "NsXXqA-UhSISde5CYA-cV4W9PaBpETktM-B1j3mxsb7YyxscWjCrTVS23Rviu_CH_0eZdR6JCJ-t0g",
         "player_id": 5
     },
     {
         "id": 6,
         "username": "Cachorro Alpha",
         "riot_id": "razzz",
-        "puuid": null,
+        "puuid": "7GZ6AXR3Tp9TzcGoQ1NQylTD3lvmP18FAe-8Qru84D-0VBkO70UijY2FYCeN_WSGaFt5h7APaHqstw",
         "player_id": 6
     },
     {
         "id": 7,
         "username": "europe",
         "riot_id": "a12",
-        "puuid": null,
+        "puuid": "xA0v8dr7F5l412BWNi4wQNlzPl8M3bwwQjoTWHISI0WElmSVW0wkhfp5xAHrbEznIyj05NPKq5FHFA",
         "player_id": 7
     },
     {
         "id": 8,
         "username": "Wesley Warren jr",
         "riot_id": "EUW",
-        "puuid": null,
+        "puuid": "k6QA9yymz8tj_5bReqJroKitUk-yhnna1ZCCf9vu9WA_Ay3IfD0_Jew8jNXLLG9r04n3lcCzd3q-gA",
         "player_id": 8
     },
     {
         "id": 9,
         "username": "CABALLO GANADOR",
         "riot_id": "CTANG",
-        "puuid": null,
+        "puuid": "wZU4B7W5Ev2FypzLkjR_N6SPOPDKdWt51bZ7nh7uVuZzSfZnTRpP7Z3ValufuvAVJHPwJ8zH2xgsrg",
         "player_id": 9
     },
     {
         "id": 10,
         "username": "Noah7",
         "riot_id": "Euw2",
-        "puuid": null,
+        "puuid": "lK_31Dn105ggyHdpVp_ogL5jIrCMHcY0NE96Nqc64A-j2WN1FGysbjI1Hv31Gs3mCYBhLcC_D9_3tA",
         "player_id": 10
     },
     {
         "id": 11,
         "username": "alvarooo",
-        "puuid": null,
+        "puuid": "Np-ElDITNWjiGHneehivEvhV3dLxHf3sMO_NTWRsjnL7PH9DuzG7r7Z_FgZbItJA3oDw5F_xdXvyiw",
         "riot_id": "EUW",
         "player_id": 11
     },
@@ -80,315 +80,406 @@
         "id": 12,
         "username": "tukaan",
         "riot_id": "tukan",
-        "puuid": null,
+        "puuid": "rBalhUZrdgPiMtI75HwDO_8n0_eEYdjTj5FxXEOBE4wKWK_gJKzaQXSuqtHFOutbQyTgjNNSrSii7w",
         "player_id": 12
     },
     {
         "id": 13,
         "username": "Mametchi",
         "riot_id": "tukan",
-        "puuid": null,
+        "puuid": "W0K8srZnAnPg23e7vOnrnFgLZzusC1h32bekCIvYxJaopGnFDfwXMpzhah7ksL7PDl64bZg4U9Kwew",
         "player_id": 13
     },
     {
         "id": 14,
         "username": "komanche uchiha",
         "riot_id": "elite",
-        "puuid": null,
+        "puuid": "NbzxOVsat7xCOtHz-PuAV2xAShKpK_U9WtEXet6uRy43FSLu25VfzHm8AMqoyLuShEoTwrAqmcq8Uw",
         "player_id": 14
     },
     {
         "id": 15,
         "username": "Mualani C6",
         "riot_id": "Myrwn",
-        "puuid": null,
+        "puuid": "K9lAR-RB4rr1_JjfiMHh2QpORs_AUTs3YWCVA_PlEaS6dMQaTPv_5zCT4v4tKTe5BJRLnF4zDImsyg",
         "player_id": 15
     },
     {
         "id": 16,
         "username": "quid not quad",
         "riot_id": "100",
-        "puuid": null,
+        "puuid": "ejbKkXTlBa2suDnbDlJXHbqt2LSymdm6LBmz-mqPOVurcH_rkTztMI5nhRPzSTjG0fOKws39GU6CGw",
         "player_id": 16
     },
     {
         "id": 17,
         "username": "100 Batman",
         "riot_id": "Jaw",
-        "puuid": null,
+        "puuid": "Qz9A7v9fqHN4i9AyYa0bNO7nHnfS2XezfiU2na63rLKy4GXgqAQi5M57w8FR1WHka_nsMHgRxkGfpw",
         "player_id": 17
     },
     {
         "id": 18,
         "username": "QQQQQQQQ",
         "riot_id": "NA3",
-        "puuid": null,
+        "puuid": "4Cft3dyR_-PLemTi8CZINNmNlik_UplHhCPhvaY7BZJHFqoaIVclmf91ZQN6--DsbTTTTUi0T6VbjQ",
         "player_id": 18
     },
     {
         "id": 19,
         "username": "wanderingTravelr",
         "riot_id": "EUW",
-        "puuid": null,
+        "puuid": "tmPEPvMwoa9bVangt2yx6Jg_6toYZC_0jPNMu4nV3SD1n7hD3Z-uVuO3vTfA21IIT86uX6ZmzSG8AA",
         "player_id": 19
     },
     {
         "id": 20,
         "username": "taste of texas",
         "riot_id": "TEXAS",
-        "puuid": null,
+        "puuid": "dccGBLcgF76r_b6y7kdR-4gkAafWLcLyVeKdnVvKbpFCXV500bS3dj8p5VlvVFhcKTIReMN0w0urmA",
         "player_id": 20
     },
     {
         "id": 21,
         "username": "Cacoxo",
         "riot_id": "oxxo",
-        "puuid": null,
+        "puuid": "lMa_HryfWZJx5pbvhTJ8XLbjRX_tss8UqMyBHA7va7c4kq_B56vau1NbwukDJdAi3opI6OUEr3b4uA",
         "player_id": 21
     },
     {
         "id": 22,
         "username": "Liiv Summit",
         "riot_id": "R77",
-        "puuid": null,
+        "puuid": "Q5oIMvGZochsWfxMri-KkP4e0dc6C5PRi4JAu1tokrEdsEx_3kG_nu2bdPPzJHS5ws6-EZnP8QhnGw",
         "player_id": 22
     },
     {
         "id": 23,
         "username": "the last dance",
         "riot_id": "R777",
-        "puuid": null,
+        "puuid": "zXjsQAzfINR7Y_sgQ6OX0LhuxYhhOIawTW91lX7lX4zWSaf-GbG1hWj7QuWihr6tJvibrNkRFYSquw",
         "player_id": 23
     },
     {
         "id": 24,
         "username": "FLY Quad",
         "riot_id": "R7777",
-        "puuid": null,
+        "puuid": "N_UiJQU-jvgQppkkXZEO_hSmPSmCEzKOp-j2x6WnOLf45BBGAlQJQcqz4KoQ8hN1P3-tMNXthn2H6g",
         "player_id": 24
     },
     {
         "id": 25,
         "username": "IHATEYOU",
         "riot_id": "TL7",
-        "puuid": null,
+        "puuid": "wDbxOgQDn0zL9GYbSGxrsm38M9o7dXoWro4pfA_T2VlUXzPYm7xLCXdZJW33Tw0zCQh4_QSW3rMjrQ",
         "player_id": 25
     },
     {
         "id": 26,
         "username": "TL Honda CoreJJ",
         "riot_id": "EUEU",
-        "puuid": null,
+        "puuid": "M4vgoM8GTZEGI92othK9mU8aTINX_wGi7QcgS_hSjPK9MP7i7CGKwMx9x1DTLn0Ye8ZeEfpbZ5wIiw",
         "player_id": 26
     },
     {
         "id": 27,
         "username": "TL El Debutante",
         "riot_id": "mid",
-        "puuid": null,
+        "puuid": "gP7ZXTlWNA0J9vwKc5Uw0Dk9-ydXUfid2t_jd3gSJKDq1jtp3xAkEmYpyXEDQ7ldKZ32dABdSNl4QQ",
         "player_id": 27
     },
     {
         "id": 28,
         "username": "Mute ALL",
         "riot_id": "apa",
-        "puuid": null,
+        "puuid": "j3QX5E82hKu54cpDZ3rL_Cpp7WPHJWyXOmx93wojxcdw6kSPROv811d5E9kUgzhYmdeJJHzkOApC9Q",
         "player_id": 28
     },
     {
         "id": 29,
         "username": "massu fanboy9",
         "riot_id": "ROTY",
-        "puuid": null,
+        "puuid": "2veJj9ImA7IKZI1gYQ0EjDaI3DXTmA5GSWuo9TCJCss6IEamZUsbj4vgEzartHSjV0NLitRz47u5YA",
         "player_id": 29
     },
     {
         "id": 30,
         "username": "TL APA",
         "riot_id": "NOOB",
-        "puuid": null,
+        "puuid": "RwX8JHLpLRkk6B9ZZcWS1BjDiQlrPJQuRKzBGjOjpU-6baNCnXVu1EtGcPImJEkNR3DVvM8U4m7rmA",
         "player_id": 30
     },
     {
         "id": 31,
         "username": "TL1",
         "riot_id": "EU1",
-        "puuid": null,
+        "puuid": "Bm3Gk_qiob0UKKsfxtzhXpZ7dYX8kDyO3jtWSszL3hn8_owyyhNGvnBwGYjhyt2Ku5nq7JHWhkRANA",
         "player_id": 31
     },
     {
         "id": 32,
         "username": "Shajara",
         "riot_id": "3636",
-        "puuid": null,
+        "puuid": "2JV3n2r0Eoqz3FcQWs2AcFX4XDPQEuJ-p1oAjcsOYTNiOSZR37Zri2WQCHeWUdg4hqqWQ7Pj1ZAQ7Q",
         "player_id": 32
     },
     {
         "id": 33,
         "username": "OG Mithy",
         "riot_id": "Moo",
-        "puuid": null,
+        "puuid": "wqu919G9k4BjkaPgtTCW_RY8QSsUrXYA3g-RF0nVInWXef1LwCVCCGEFjP6k5JmcyVcgJp3DZTioEQ",
         "player_id": 33
     },
     {
         "id": 34,
         "username": "Varian Wrynn",
         "riot_id": "1810",
-        "puuid": null,
+        "puuid": "S3HYZUmLccFH1H1hBhAiak4XX152UP0qeHFuhTzFzADA0pOfGK8wRq_53RuKRWTOjR129CiGis3NJA",
         "player_id": 34
     },
     {
         "id": 35,
         "username": "nukeduck1",
         "riot_id": "fly",
-        "puuid": null,
+        "puuid": "EJSJ4_ybheCMVfhRFpcjlhGSV44rMlknl_SYkM_QzfbCwnH6vqT0oKFjy9GNA8WqQdFkTOCxSJgXlw",
         "player_id": 35
     },
     {
         "id": 36,
         "username": "FLY Quad",
         "riot_id": "0310",
-        "puuid": null,
+        "puuid": "58VSnIzexX2eonA5Xph88cMvHtIf7Wj4u0tPMs2vkaam7brIAschqr9xSGGRbIto8eO9PkaMK-jNfA",
         "player_id": 36
     },
     {
         "id": 37,
         "username": "DAS BURGER STEIN",
         "riot_id": "BELLY",
-        "puuid": null,
+        "puuid": "QIcvfEIL_HdUTII5NW4VzL6d1syi78boluH2QIjkiqPd4hV76P-4VRP2LakzFSvlrByYSm3uYlciEA",
         "player_id": 37
     },
     {
         "id": 38,
         "username": "DRAATATATA",
         "riot_id": "TAT",
-        "puuid": null,
+        "puuid": "JNx7QmV32N8_Bi_ENFLA_R5vySPsMTKSk77h9bPUj1nXWtfRyzeUlHAYUQYK-jfygkJEpfrfy7d9xQ",
         "player_id": 38
     },
     {
         "id": 39,
         "username": "Grandpa Alf",
         "riot_id": "EUW",
-        "puuid": null,
+        "puuid": "U8IUp-9_kb-rKXHZgyFAKeb6jM9L3sZYfhu7medu3z3yzKAlQyxkkQGU18Av8i7xYzDRY2k9ggTkKQ",
         "player_id": 39
     },
     {
         "id": 40,
         "username": "PNG XSQDL",
         "riot_id": "XSQDL",
-        "puuid": null,
+        "puuid": "mLR1CkcwRlk8kxg09Z8D-wNPtLslvMKDP7A8OicGp4X9ulu8Ok2ONEFbu65egdMZy2l2G_njkAcEFg",
         "player_id": 40
     },
     {
         "id": 41,
         "username": "PNG Wizer",
         "riot_id": "paiN",
-        "puuid": null,
+        "puuid": "1V38EgnwZzVrbq8TSQo1SafacmT5i2-2p6WXLP8BeDTcNRlLYjwAtRG8NG3VHyHYK9d3oj_KfLD--g",
         "player_id": 41
     },
     {
         "id": 42,
         "username": "PNG CarioK",
         "riot_id": "br2",
-        "puuid": null,
+        "puuid": "IOqj_-me_YzMfHTaiP3t0Yz-yslQ_a2_iC1jLZlYJEg3K3zShnJo44lzF-9z-OTi5CTOBdJfsaJ56Q",
         "player_id": 42
     },
     {
         "id": 43,
         "username": "PNG Kuri",
         "riot_id": "0808",
-        "puuid": null,
+        "puuid": "UHUHUS3R3-0JqTaClIA6Vafta_rywCEEEGjF7cZ-yOHihpQmzjpYFb2RQuAIOJ8XLzDpCR_w2_ldAw",
         "player_id": 43
     },
     {
         "id": 44,
         "username": "PNG dyNquedo",
         "riot_id": "1010",
-        "puuid": null,
+        "puuid": "ACfI2zqaPNFWRMpmqvgG1xx8OsBfSyMFpPuMrgFe5_F27aThWaA8aKcT2fXGfgXxQc5uVjns_A0o_Q",
         "player_id": 44
     },
     {
         "id": 45,
         "username": "柏林聖日耳曼",
         "riot_id": "PSG",
-        "puuid": null,
+        "puuid": "rUt28J4u7v4Nuf92hdwMPhLU_QsE7w26mqzXvLK1vRdFQm4T0wxPPukECP6cdpJxR7bTOB4mUBbopA",
         "player_id": 45
     },
     {
         "id": 46,
         "username": "Naruto3",
         "riot_id": "123",
-        "puuid": null,
+        "puuid": "eWELSgzQql2BYHvEe_ozPVIAIdmvNLip56Lm_MCeFUsDa2RDYxnOlbJ7Gt4bsz2kV92p4DjF7KzaMg",
         "player_id": 46
     },
     {
         "id": 47,
         "username": "巴黎聖日耳曼",
         "riot_id": "PSG",
-        "puuid": null,
+        "puuid": "-LxqLfacN_0Gc1Sn89zaHiorqPWGurwiVMho72lFpTSb8GXHDzX7zLAskEgGvteisqr2iFJZQn7Z-g",
         "player_id": 47
     },
     {
         "id": 48,
         "username": "庭不下來",
         "riot_id": "0610",
-        "puuid": null,
+        "puuid": "AxTlnTeqya3ZkB4XFQtjfW4OtfQ7P4mvLqmSP4frZuMxFAook7FKS5MKXcTQwCe5-9DNtBQKcGkl2w",
         "player_id": 48
     },
     {
         "id": 49,
         "username": "HongSuo",
         "riot_id": "8181",
-        "puuid": null,
+        "puuid": "O9kM5KKWBw0qlXstRsBg2Mb7AshKxSfUc5yemAHdaaVxpJIChSH_64Mm1pKmQnC9sOh6epXQSxq_Lw",
         "player_id": 49
     },
     {
         "id": 50,
         "username": "楓棠珍珠奶茶",
         "riot_id": "psg",
-        "puuid": null,
+        "puuid": "ZPQBTf6UI2gs4iBRmHR6tDxWf6R_tcJz0CH8bdP-pxHYh8hS8r-F1KeJCbeuH6yR0lovf9MdyXY1fw",
         "player_id": 50
     },
     {
         "id": 51,
         "username": "Kati",
         "riot_id": "VKE",
-        "puuid": null,
+        "puuid": "mgX3-Y0YT1KQuSmtX1HnHBjvacR8Rjpm_KMymRWzoZ8otr2_A0fQe28Ymj1v2eyc17P4Mj9V_RjLyQ",
         "player_id": 51
     },
     {
         "id": 52,
         "username": "SofM",
         "riot_id": "Ike",
-        "puuid": null,
+        "puuid": "NWvap0EjW3ZegpXKxjofZ5OnkRkyQ-Q57Ec0BxxGcTV5to0WyjAPGHI6eXSAOFMDitNZL6vuJ8ix2Q",
         "player_id": 52
     },
     {
         "id": 53,
         "username": "zxcasdqwe",
         "riot_id": "zzz",
-        "puuid": null,
+        "puuid": "oPEeoKwn5lnbdMYgF2H-XtSQHcCWe8l75bNYJRtMho6yg6CsFPTp_AOY9akeRQk7EQ4vHJR2U-YO_w",
         "player_id": 53
     },
     {
         "id": 54,
         "username": "VKE",
         "riot_id": "Gury",
-        "puuid": null,
+        "puuid": "NwquRNauTfmyYjI5TNEbB4aYK9s0xg3Dkdq380MheUeZQJAs26CCp6socqCgIWsW7N0sWiExNCcSIQ",
         "player_id": 54
     },
     {
         "id": 55,
         "username": "Tom23",
         "riot_id": "1404",
-        "puuid": null,
+        "puuid": "X3byFGmE9fD49pcjXa7In6TAe3SIZjHztPdrChhaDQaasJjBJcx8l_x-S7SjJ5G1HQX63sct7AvTsg",
         "player_id": 55
     },
     {
         "id": 56,
         "username": "VKE SUP",
         "riot_id": "kkkk",
-        "puuid": null,
+        "puuid": "q-YzW0Jd3FY_gZp3ddtcK-_0cbUtlrACNWraMxozpTZuIEZuzeyC5TqF9VNvGQfNUMlOJJeoyjoBTA",
         "player_id": 56
+    },
+    {
+        "id": 57,
+        "username": "wqeasdqwrd",
+        "riot_id": "K97",
+        "puuid": null,
+        "player_id": 57
+    },
+    {
+        "id": 58,
+        "username": "eliodangcapvl",
+        "riot_id": "Vk5",
+        "puuid": null,
+        "player_id": 58
+    },
+    {
+        "id": 59,
+        "username": "cokhinaocokhinao",
+        "riot_id": "kiaya",
+        "puuid": null,
+        "player_id": 59
+    },
+    {
+        "id": 60,
+        "username": "khongbietdatten",
+        "riot_id": "000",
+        "puuid": null,
+        "player_id": 60
+    },
+    {
+        "id": 61,
+        "username": "DO YOU KNOW ME",
+        "riot_id": "GAM",
+        "puuid": null,
+        "player_id": 61
+    },
+    {
+        "id": 62,
+        "username": "thienlyoiii",
+        "riot_id": "A99",
+        "puuid": null,
+        "player_id": 62
+    },
+    {
+        "id": 63,
+        "username": "Ariana Venti",
+        "riot_id": "B2K",
+        "puuid": null,
+        "player_id": 63
+    },
+    {
+        "id": 64,
+        "username": "Sispuellamagica",
+        "riot_id": "0828",
+        "puuid": null,
+        "player_id": 64
+    },
+    {
+        "id": 65,
+        "username": "SHG1",
+        "riot_id": "SHG",
+        "puuid": null,
+        "player_id": 65
+    },
+    {
+        "id": 66,
+        "username": "Hi Im busaiku",
+        "riot_id": "anko",
+        "puuid": null,
+        "player_id": 66
+    },
+    {
+        "id": 67,
+        "username": "",
+        "riot_id": "",
+        "puuid": null,
+        "player_id": 67
+    },
+    {
+        "id": 68,
+        "username": "KITE TUSSLE",
+        "riot_id": "SHG",
+        "puuid": null,
+        "player_id": 68
+    },
+    {
+        "id": 69,
+        "username": "The Forest",
+        "riot_id": "SHG",
+        "puuid": null,
+        "player_id": 69
     }
 ]

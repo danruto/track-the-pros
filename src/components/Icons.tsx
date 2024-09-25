@@ -1,4 +1,4 @@
-import { splitProps, type ComponentProps } from "solid-js"
+import { type ComponentProps, splitProps } from "solid-js"
 
 import { cn } from "~/lib/utils"
 import type { TRole } from "~/types"
@@ -75,21 +75,25 @@ export function IconGithub(props: IconProps) {
 }
 
 export function RoleIcon(props: { role: TRole }) {
-    const src =
-        process.env.VERCEL_ENV === "production"
-            ? `_vercel/image?url=${encodeURIComponent(`/positions/${props.role.toLocaleLowerCase()}.png`)}&w=24&q=100`
-            : `/positions/${props.role.toLocaleLowerCase()}.png`
+    const src = getOptimisedImageUrl({ url: `/positions/${props.role.toLocaleLowerCase()}.png` })
     const alt = props.role.toLocaleLowerCase()
 
     return <img src={src} title={alt} alt={alt} class="w-[24px] invert dark:filter-none" />
 }
 
 export function TierIcon(props: { tier: string }) {
-    const src =
-        process.env.VERCEL_ENV === "production"
-            ? `/_vercel/image?url=${encodeURIComponent(`/emblems/${props.tier.toLocaleLowerCase()}.png`)}&w=24&q=100`
-            : `/emblems/${props.tier.toLocaleLowerCase()}.png`
+    const src = getOptimisedImageUrl({ url: `/emblems/${props.tier.toLocaleLowerCase()}.png` })
     const alt = props.tier.toLocaleLowerCase()
 
     return <img src={src} title={alt} alt={alt} class="w-[24px]" />
+}
+
+export function getOptimisedImageUrl({
+    url,
+    width = 24,
+    quality = 75,
+}: { url: string; width?: number; quality?: number }): string {
+    return process.env.VERCEL_ENV === "production"
+        ? `_vercel/image?url=${encodeURIComponent(url)}&w=${width}&q=${quality}`
+        : url
 }

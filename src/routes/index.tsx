@@ -2,7 +2,7 @@ import { cache, createAsync } from "@solidjs/router"
 import clsx from "clsx"
 import { For, createSignal } from "solid-js"
 
-import { IconTwitch, IconX, RoleIcon, TierIcon } from "~/components/Icons"
+import { getOptimisedImageUrl, IconTwitch, IconX, RoleIcon, TierIcon } from "~/components/Icons"
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import { Button } from "~/components/ui/button"
 import { Label } from "~/components/ui/label"
@@ -82,7 +82,7 @@ export default function Home() {
                                     <TableCell>
                                         <Avatar>
                                             <AvatarImage
-                                                src={player.team?.avatar}
+                                                src={getOptimisedImageUrl({ url: player.team.avatar, width: 48 })}
                                                 title={player.team?.name}
                                                 alt={player.team?.name}
                                                 class={clsx({
