@@ -88,8 +88,8 @@ export default function Home() {
                                                 class={clsx({
                                                     "filter-none dark:invert": player.team?.avatar.includes("g2.svg"),
                                                     "invert dark:filter-none": player.team?.avatar.includes("tl.svg"),
-                                                    "dark:bg-white": ["100t.svg", "png.svg", "psg.svg"].some((file) =>
-                                                        player.team?.avatar.includes(file),
+                                                    "dark:bg-white": ["100t.svg", "png.svg", "psg.svg", "shg.svg"].some(
+                                                        (file) => player.team?.avatar.includes(file),
                                                     ),
                                                 })}
                                             />
