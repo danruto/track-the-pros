@@ -11,7 +11,7 @@ export default function Nav() {
                 rel="noreferrer"
                 target="_blank"
                 variant="link"
-                class="justify-start text-2xl font-extrabold font-pixelify [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-indigo-200/60 to-70% to-indigo-400/80"
+                class="justify-start lg:text-2xl text-sm font-extrabold font-pixelify [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-indigo-200/60 to-70% to-indigo-400/80 break-words"
             >
                 PIXEL BRUSH
             </Button>
