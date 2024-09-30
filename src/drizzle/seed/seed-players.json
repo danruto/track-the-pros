@@ -481,5 +481,47 @@
         "role": "Jungle",
         "avatar": "",
         "team_id": 13
+    },
+    {
+        "id": 70,
+        "display": "Gumayusi",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 8
+    },
+    {
+        "id": 71,
+        "display": "Oner",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 8
+    },
+    {
+        "id": 72,
+        "display": "Keria",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 8
+    },
+    {
+        "id": 73,
+        "display": "Faker",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 8
+    },
+    {
+        "id": 74,
+        "display": "Zeus",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 8
+    },
+    {
+        "id": 75,
+        "display": "Roach",
+        "role": "Coach",
+        "avatar": "",
+        "team_id": 8
     }
 ]

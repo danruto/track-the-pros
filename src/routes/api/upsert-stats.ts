@@ -17,7 +17,7 @@ const handler = async () => {
     // and have the cron run multiple times
     // between 0 < n < cutoffDate
     // within the Riot API limits
-    const limit = process.env.UPSERT_LIMIT ? Number.parseInt(process.env.UPSERT_LIMIT, 10) : 40
+    const limit = process.env.UPSERT_LIMIT ? Number.parseInt(process.env.UPSERT_LIMIT, 10) : 100
     const offset = 0
 
     const client = await getRiotClient()
