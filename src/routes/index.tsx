@@ -117,26 +117,27 @@ export default function Home() {
                                     <TableCell>
                                         <Progress
                                             value={player.stats?.percentage ?? 0}
-                                            fill={(player.stats?.percentage ?? 0 > 50) ? "bg-green-500" : "bg-danger"}
+                                            fill={(player.stats?.percentage ?? 0 > 50) ? "bg-green-800" : "bg-danger"}
                                         >
                                             <div class="grid gap-2 py-2">
                                                 <Label class="text-slate-400">
-                                                    <span>{player.stats?.lp}LP</span>
+                                                    <span>{player.stats?.lp ?? 0}LP</span>
                                                     <span> | </span>
                                                     <span>
                                                         {(player.stats?.wins ?? 0) + (player.stats?.losses ?? 0)}G{" "}
                                                     </span>
-                                                    <span class="">{player.stats?.wins}W</span>{" "}
-                                                    <span class="">{player.stats?.losses}L</span>{" "}
+                                                    <span class="">{player.stats?.wins ?? 0}W</span>{" "}
+                                                    <span class="">{player.stats?.losses ?? 0}L</span>{" "}
                                                 </Label>
                                                 <Label>
                                                     <span
                                                         class={clsx({
-                                                            "text-success": player.stats?.percentage ?? 0 > 50,
+                                                            "text-green-500 dark:text-success":
+                                                                player.stats?.percentage ?? 0 > 50,
                                                             "text-danger": player.stats?.percentage ?? 0 <= 50,
                                                         })}
                                                     >
-                                                        {player.stats?.percentage.toFixed(2)}%
+                                                        {player.stats?.percentage.toFixed(2) ?? 0}%
                                                     </span>
                                                 </Label>
                                             </div>

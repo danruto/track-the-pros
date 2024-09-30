@@ -11,6 +11,7 @@ const getRiotClient = async () => {
     // Worlds 2024 is in EUW, so use that as the default
     const client = new Client(process.env.RIOT_API_KEY)
     await client.initialize({
+        // logger: { level: "TRACE" },
         region: "euw",
         ratelimiter: {
             retry: {
@@ -30,16 +31,15 @@ const updatePlayerStats = async (client: Client, account: IAccount) => {
 
     let fetchedAccount = null
     let puuid = account.puuid
+    // let puuid = null
     if (!puuid) {
         fetchedAccount = await client.accounts.fetchByNameAndTag(account.username, account.riotId)
         puuid = fetchedAccount.playerId
     }
     const summoner = await client.summoners.fetchByPlayerId(puuid)
     if (!fetchedAccount) fetchedAccount = await summoner.fetchAccount()
-    const leagueEntry = await summoner.fetchLeagueEntries()
-    const soloQ = leagueEntry.get("RANKED_SOLO_5x5")
 
-    console.log(`[updatePlayerStats] Fetched data from riot for ${account.username}`)
+    console.log(`[updatePlayerStats] Fetched account data from riot for ${account.username}`)
 
     // If the account name and riot id has changed, then save it
     if (account.username !== fetchedAccount.username || account.riotId !== fetchedAccount.userTag || !account.puuid) {
@@ -63,19 +63,57 @@ const updatePlayerStats = async (client: Client, account: IAccount) => {
             })
     }
 
-    if (soloQ) {
+    try {
+        const leagueEntry = await summoner.fetchLeagueEntries({
+            ignoreCache: true,
+            ignoreStorage: true,
+        })
+        const soloQ = leagueEntry.get("RANKED_SOLO_5x5")
+
+        if (soloQ) {
+            const data = {
+                updatedAt: new Date(),
+                wins: soloQ.wins,
+                losses: soloQ.losses,
+                percentage: (soloQ.wins / (soloQ.wins + soloQ.losses)) * 100,
+                lp: soloQ.lp,
+                tier: soloQ.tier,
+                player_id: account.playerId,
+                account_id: account.id,
+            }
+
+            console.log(`[updatePlayerStats] Updating stats entry in db for ${account.username}`, { data })
+
+            await db
+                .insert(Stats)
+                // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+                .values(data as unknown as any)
+                .onConflictDoUpdate({
+                    target: [Stats.player_id, Stats.account_id],
+                    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+                    set: data as unknown as any,
+                })
+
+            console.log(`[updatePlayerStats] Updated for ${account.username}`)
+
+            return data
+        }
+    } catch (ex) {
+        // Failing to fetch a league entry means they haven't played placements, so reset stats to an 'unranked' type state
+        console.error(`Failed to fetch league entries for ${account.username}`, { ex })
+
         const data = {
             updatedAt: new Date(),
-            wins: soloQ.wins,
-            losses: soloQ.losses,
-            percentage: (soloQ.wins / (soloQ.wins + soloQ.losses)) * 100,
-            lp: soloQ.lp,
-            tier: soloQ.tier,
+            wins: 0,
+            losses: 0,
+            percentage: 0,
+            lp: 0,
+            tier: "UNRANKED",
             player_id: account.playerId,
             account_id: account.id,
         }
 
-        console.log(`[updatePlayerStats] Updating stats entry in db for ${account.username}`, { data })
+        console.log(`[updatePlayerStats] Resetting stats entry in db for ${account.username}`, { data })
 
         await db
             .insert(Stats)
@@ -87,12 +125,10 @@ const updatePlayerStats = async (client: Client, account: IAccount) => {
                 set: data as unknown as any,
             })
 
-        console.log(`[updatePlayerStats] Updated for ${account.username}`)
+        console.log(`[updatePlayerStats] Reset for ${account.username}`)
 
-        return data
+        return ex
     }
-
-    console.log(`[updatePlayerStats] No soloq record for ${account.username}`)
 
     return null
 }
@@ -134,7 +170,7 @@ const fetchPlayer = async (limit: number, offset: number) => {
         .leftJoin(Teams, eq(Teams.id, Players.team_id))
         .leftJoin(Stats, eq(Stats.account_id, Accounts.id))
 
-        .where(isNotNull(Stats.lp))
+    // .where(isNotNull(Stats.lp))
 
     const ret: IPlayerResponse[] = []
 
@@ -153,7 +189,7 @@ const fetchPlayer = async (limit: number, offset: number) => {
                 avatar: null,
                 team: player.team! as ITeam,
                 socials: socials as ISocial[],
-                stats: player.stats! as IStat,
+                stats: player.stats ? (player.stats as IStat) : undefined,
             })
         }
 
