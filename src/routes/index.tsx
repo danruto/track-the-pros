@@ -86,11 +86,17 @@ export default function Home() {
                                                 title={player.team?.name}
                                                 alt={player.team?.name}
                                                 class={clsx({
-                                                    "filter-none dark:invert": player.team?.avatar.includes("g2.svg"),
-                                                    "invert dark:filter-none": player.team?.avatar.includes("tl.svg"),
-                                                    "dark:bg-white": ["100t.svg", "png.svg", "psg.svg", "shg.svg"].some(
-                                                        (file) => player.team?.avatar.includes(file),
+                                                    "filter-none dark:invert": ["g2.svg", "dk.svg"].some((file) =>
+                                                        player.team?.avatar.includes(file),
                                                     ),
+                                                    "invert dark:filter-none": player.team?.avatar.includes("tl.svg"),
+                                                    "dark:bg-white": [
+                                                        "100t.svg",
+                                                        "png.svg",
+                                                        "psg.svg",
+                                                        "shg.svg",
+                                                        "hle.svg",
+                                                    ].some((file) => player.team?.avatar.includes(file)),
                                                 })}
                                             />
                                             <AvatarFallback>{player.team?.name}</AvatarFallback>
