@@ -63,5 +63,35 @@
         "id": 13,
         "name": "SHG",
         "avatar": "/teams/shg.svg"
+    },
+    {
+        "id": 14,
+        "name": "GENG",
+        "avatar": "/teams/geng.svg"
+    },
+    {
+        "id": 15,
+        "name": "LNG",
+        "avatar": "/teams/lng.svg"
+    },
+    {
+        "id": 16,
+        "name": "WBG",
+        "avatar": "/teams/wbg.svg"
+    },
+    {
+        "id": 17,
+        "name": "DK",
+        "avatar": "/teams/dk.svg"
+    },
+    {
+        "id": 18,
+        "name": "HLE",
+        "avatar": "/teams/hle.svg"
+    },
+    {
+        "id": 19,
+        "name": "TES",
+        "avatar": "/teams/tes.webp"
     }
 ]

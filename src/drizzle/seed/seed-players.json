@@ -523,5 +523,180 @@
         "role": "Coach",
         "avatar": "",
         "team_id": 8
+    },
+    {
+        "id": 76,
+        "display": "Peyz",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 14
+    },
+    {
+        "id": 77,
+        "display": "Kiin",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 14
+    },
+    {
+        "id": 78,
+        "display": "Chovy",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 14
+    },
+    {
+        "id": 79,
+        "display": "Lehends",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 14
+    },
+    {
+        "id": 80,
+        "display": "Canyon",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 14
+    },
+    {
+        "id": 81,
+        "display": "GALA",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 15
+    },
+    {
+        "id": 82,
+        "display": "Zika",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 15
+    },
+    {
+        "id": 83,
+        "display": "Hang",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 15
+    },
+    {
+        "id": 84,
+        "display": "Weiwei",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 15
+    },
+    {
+        "id": 85,
+        "display": "Xiaohu",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 16
+    },
+    {
+        "id": 86,
+        "display": "Tarzan",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 16
+    },
+    {
+        "id": 87,
+        "display": "Light",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 16
+    },
+    {
+        "id": 88,
+        "display": "Breathe",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 16
+    },
+    {
+        "id": 89,
+        "display": "Kingen",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 17
+    },
+    {
+        "id": 90,
+        "display": "Moham",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 17
+    },
+    {
+        "id": 91,
+        "display": "Lucid",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 17
+    },
+    {
+        "id": 92,
+        "display": "ShowMaker",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 17
+    },
+    {
+        "id": 93,
+        "display": "Peanut",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 18
+    },
+    {
+        "id": 94,
+        "display": "Viper",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 18
+    },
+    {
+        "id": 95,
+        "display": "Zeka",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 18
+    },
+    {
+        "id": 96,
+        "display": "Delight",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 18
+    },
+    {
+        "id": 97,
+        "display": "Doran",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 18
+    },
+    {
+        "id": 98,
+        "display": "Tian",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 19
+    },
+    {
+        "id": 99,
+        "display": "369",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 19
+    },
+    {
+        "id": 100,
+        "display": "xiye",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 19
     }
 ]
