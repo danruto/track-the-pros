@@ -93,5 +93,10 @@
         "id": 19,
         "name": "TES",
         "avatar": "/teams/tes.webp"
+    },
+    {
+        "id": 20,
+        "name": "BLG",
+        "avatar": "/teams/blg.png"
     }
 ]

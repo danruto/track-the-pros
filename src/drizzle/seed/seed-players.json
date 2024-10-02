@@ -698,5 +698,40 @@
         "role": "Mid",
         "avatar": "",
         "team_id": 19
+    },
+    {
+        "id": 101,
+        "display": "knight",
+        "role": "Mid",
+        "avatar": "",
+        "team_id": 20
+    },
+    {
+        "id": 102,
+        "display": "Elk",
+        "role": "Bot",
+        "avatar": "",
+        "team_id": 20
+    },
+    {
+        "id": 103,
+        "display": "Wei",
+        "role": "Jungle",
+        "avatar": "",
+        "team_id": 20
+    },
+    {
+        "id": 104,
+        "display": "ON",
+        "role": "Support",
+        "avatar": "",
+        "team_id": 20
+    },
+    {
+        "id": 105,
+        "display": "Bin",
+        "role": "Top",
+        "avatar": "",
+        "team_id": 20
     }
 ]
