@@ -47,6 +47,22 @@ export function IconMoon(props: IconProps) {
     )
 }
 
+export function IconChevronDown(props: IconProps) {
+    return (
+        <Icon {...props}>
+            <path d="M6 9 12 15 18 9" />
+        </Icon>
+    )
+}
+
+export function IconChevronUp(props: IconProps) {
+    return (
+        <Icon {...props}>
+            <path d="M18 15 12 9 6 15" />
+        </Icon>
+    )
+}
+
 export function IconTwitch(props: IconProps) {
     return (
         <Icon {...props}>

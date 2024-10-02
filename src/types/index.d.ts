@@ -1,5 +1,17 @@
 export type TSocialKind = "X" | "Twitch"
 export type TRole = "Top" | "Jungle" | "Mid" | "Bot" | "Support" | "Coach" | "Fill"
+export type TTiers =
+    | "Challenger"
+    | "Grandmaster"
+    | "Master"
+    | "Diamond"
+    | "Emerald"
+    | "Platinum"
+    | "Gold"
+    | "Silver"
+    | "Bronze"
+    | "Iron"
+    | "Unranked"
 
 export interface ITeam {
     name: string

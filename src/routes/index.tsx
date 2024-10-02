@@ -1,26 +1,47 @@
 import { cache, createAsync } from "@solidjs/router"
-import clsx from "clsx"
-import { For, createSignal } from "solid-js"
+import { For, Show, createSignal } from "solid-js"
 
-import { getOptimisedImageUrl, IconTwitch, IconX, RoleIcon, TierIcon } from "~/components/Icons"
+import { IconTwitch, IconX, RoleIcon, TierIcon, getOptimisedImageUrl } from "~/components/Icons"
+import { TableHeadWithSort } from "~/components/TableHeadWithSort"
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
 import { Button } from "~/components/ui/button"
 import { Label } from "~/components/ui/label"
 import { Progress } from "~/components/ui/progress"
-
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "~/components/ui/table"
 import { TextField, TextFieldInput } from "~/components/ui/text-field"
+
 import { fetchPlayer } from "~/lib/riot"
-import type { IPlayerResponse } from "~/types"
+import { cn } from "~/lib/utils"
+import type { IPlayerResponse, TTiers as TTier } from "~/types"
 
 const serverGetPlayers = cache(async (opts: { limit?: number; offset?: number }): Promise<IPlayerResponse[]> => {
     "use server"
 
-    return await fetchPlayer(opts.limit ?? 100, opts.offset ?? 0)
+    return await fetchPlayer(opts.limit ?? 120, opts.offset ?? 0)
 }, "getPlayers")
 
 export const route = {
     load: () => serverGetPlayers({}),
+}
+
+const Tiers: Record<TTier, number> = {
+    CHALLENGER: 10,
+    GRANDMASTER: 9,
+    MASTER: 8,
+    DIAMOND: 7,
+    EMERALD: 6,
+    PLATINUM: 5,
+    GOLD: 4,
+    SILVER: 3,
+    BRONZE: 2,
+    IRON: 1,
+    UNRANKED: 0,
+} as const
+
+const compareTiers = (a: TTier, b: TTier): number => {
+    if (a === b) return 0
+
+    return Tiers[a] > Tiers[b] ? 1 : -1
 }
 
 export default function Home() {
@@ -28,9 +49,12 @@ export default function Home() {
 
     const [filter, setFilter] = createSignal("")
 
+    const [sortBy, setSortBy] = createSignal<"Default" | "LP" | "WR" | "Team" | "Role">("Default")
+    const [sortDirection, setSortDirection] = createSignal<"DESC" | "ASC">("ASC")
+
     return (
         <main
-            class={clsx("container mx-auto px-8 min-h-dvh", {
+            class={cn("container mx-auto px-8 min-h-dvh", {
                 // "h-dvh": players().length < 10,
             })}
         >
@@ -45,37 +69,130 @@ export default function Home() {
                         onInput={(e) => setFilter(e.currentTarget.value)}
                     />
                 </TextField>
+                <Show when={sortBy() !== "Default"}>
+                    <Button
+                        class="mt-0 mb-4"
+                        variant={"outline"}
+                        onClick={() => {
+                            setSortBy("Default")
+                            setSortDirection("ASC")
+                        }}
+                    >
+                        Reset Sort
+                    </Button>
+                </Show>
                 <Table>
                     <TableCaption>
                         <p class="py-4">Tracking The Pros - Worlds 2024 | Presented by Pixel Brush</p>
                     </TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead class="w-[60px]">Team</TableHead>
+                            <TableHeadWithSort
+                                class="w-[60px]"
+                                text="Team"
+                                onClick={() => {
+                                    setSortBy("Team")
+                                    setSortDirection(sortDirection() === "DESC" ? "ASC" : "DESC")
+                                }}
+                                selected={sortBy() === "Team"}
+                                direction={sortDirection()}
+                            />
                             <TableHead class="w-[100px]">Player</TableHead>
                             <TableHead>Account</TableHead>
-                            <TableHead>Role</TableHead>
-                            <TableHead>Rank</TableHead>
-                            <TableHead>W/R</TableHead>
+                            <TableHeadWithSort
+                                text="Role"
+                                onClick={() => {
+                                    setSortBy("Role")
+                                    setSortDirection(sortDirection() === "DESC" ? "ASC" : "DESC")
+                                }}
+                                selected={sortBy() === "Role"}
+                                direction={sortDirection()}
+                            />
+                            <TableHeadWithSort
+                                text="Rank"
+                                onClick={() => {
+                                    setSortBy("LP")
+                                    setSortDirection(sortDirection() === "DESC" ? "ASC" : "DESC")
+                                }}
+                                selected={sortBy() === "LP"}
+                                direction={sortDirection()}
+                            />
+                            <TableHeadWithSort
+                                text="W/R"
+                                onClick={() => {
+                                    setSortBy("WR")
+                                    setSortDirection(sortDirection() === "DESC" ? "ASC" : "DESC")
+                                }}
+                                selected={sortBy() === "WR"}
+                                direction={sortDirection()}
+                            />
                             <TableHead>Socials</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         <For
-                            each={players().filter((player) => {
-                                if (filter()) {
-                                    const isDisplay = player.display.toLocaleLowerCase().includes(filter())
-                                    const isTeam = player.team?.name.toLocaleLowerCase().includes(filter())
-                                    const isRiotId = player.account.riotId.toLocaleLowerCase().includes(filter())
-                                    const isSummoner = player.account.username.toLocaleLowerCase().includes(filter())
-                                    const isTier = player.stats?.tier.toLocaleLowerCase().includes(filter())
-                                    const isRole = player.role.toLocaleLowerCase().includes(filter())
+                            each={players()
+                                .filter((player) => {
+                                    if (filter()) {
+                                        const isDisplay = player.display.toLocaleLowerCase().includes(filter())
+                                        const isTeam = player.team?.name.toLocaleLowerCase().includes(filter())
+                                        const isRiotId = player.account.riotId.toLocaleLowerCase().includes(filter())
+                                        const isSummoner = player.account.username
+                                            .toLocaleLowerCase()
+                                            .includes(filter())
+                                        const isTier = player.stats?.tier.toLocaleLowerCase().includes(filter())
+                                        const isRole = player.role.toLocaleLowerCase().includes(filter())
 
-                                    return isDisplay || isTeam || isRiotId || isSummoner || isTier || isRole
-                                }
+                                        return isDisplay || isTeam || isRiotId || isSummoner || isTier || isRole
+                                    }
 
-                                return true
-                            })}
+                                    return true
+                                })
+                                .sort(
+                                    sortBy() !== "Default"
+                                        ? (a, b) => {
+                                              if (sortBy() === "Team") {
+                                                  return sortDirection() === "DESC"
+                                                      ? a.team.name.localeCompare(b.team.name)
+                                                      : b.team.name.localeCompare(a.team.name)
+                                              }
+                                              if (sortBy() === "Role") {
+                                                  return sortDirection() === "DESC"
+                                                      ? a.role.localeCompare(b.role)
+                                                      : b.role.localeCompare(a.role)
+                                              }
+                                              if (sortBy() === "LP" && a.stats && b.stats) {
+                                                  // If tiers are the same, then sort by LP only
+                                                  if (a.stats.tier === b.stats.tier) {
+                                                      return sortDirection() === "DESC"
+                                                          ? a.stats?.lp > b.stats?.lp
+                                                              ? -1
+                                                              : 1
+                                                          : b.stats?.lp > a.stats?.lp
+                                                            ? -1
+                                                            : 1
+                                                  }
+
+                                                  const result = compareTiers(
+                                                      a.stats.tier as TTier,
+                                                      b.stats.tier as TTier,
+                                                  )
+                                                  return sortDirection() === "DESC" ? result : -result
+                                              }
+                                              if (sortBy() === "WR" && a.stats && b.stats) {
+                                                  return sortDirection() === "DESC"
+                                                      ? a.stats?.percentage > b.stats?.percentage
+                                                          ? -1
+                                                          : 1
+                                                      : b.stats?.percentage > a.stats?.percentage
+                                                        ? -1
+                                                        : 1
+                                              }
+
+                                              return 0
+                                          }
+                                        : undefined,
+                                )}
                         >
                             {(player) => (
                                 <TableRow>
@@ -85,7 +202,7 @@ export default function Home() {
                                                 src={getOptimisedImageUrl({ url: player.team.avatar, width: 48 })}
                                                 title={player.team?.name}
                                                 alt={player.team?.name}
-                                                class={clsx({
+                                                class={cn({
                                                     "filter-none dark:invert": ["g2.svg", "dk.svg"].some((file) =>
                                                         player.team?.avatar.includes(file),
                                                     ),
@@ -137,7 +254,7 @@ export default function Home() {
                                                 </Label>
                                                 <Label>
                                                     <span
-                                                        class={clsx({
+                                                        class={cn({
                                                             "text-green-500 dark:text-success":
                                                                 player.stats?.percentage ?? 0 > 50,
                                                             "text-danger": player.stats?.percentage ?? 0 <= 50,
